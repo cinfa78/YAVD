@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SEvent : MonoBehaviour {
+[CreateAssetMenu(fileName = "Event", menuName = "YAVD/Event")]
+public class SEvent : ScriptableObject {
 
-    public List<SEventListener> listeners = new List<SEventListener>();
+    public List<EventListener> listeners = new List<EventListener>();
 
     public void Raise()
     {
-        for (int i = listeners.Count - 1; i >= 0; i--)
+        foreach(EventListener listener in listeners)
         {
-            listeners[i].OnEventRaised();
+            listener.OnEventRaised();
         }
     }
 
-    public void AddListener(SEventListener l)
+    public void AddListener(EventListener l)
     {
         listeners.Add(l);
     }
-    public void RemoveListener(SEventListener l)
+
+    public void RemoveListener(EventListener l)
     {
-        listeners.Remove(l);
+        if(listeners.Contains(l))
+            listeners.Remove(l);
     }
 }

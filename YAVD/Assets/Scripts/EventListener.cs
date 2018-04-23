@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-[CreateAssetMenu(fileName ="NewEventListener",menuName ="YAVD/Event Listener")]
-public class SEventListener : ScriptableObject {
+
+public class EventListener : MonoBehaviour {
 
     public SEvent Event;
     public UnityEvent Response;
+
     private void OnEnable()
     {
         Event.AddListener(this);
