@@ -1,9 +1,9 @@
-/YAVD/[Ll]ibrary/
-/YAVD/[Tt]emp/
-/YAVD/[Oo]bj/
-/YAVD/[Bb]uild/
-/YAVD/[Bb]uilds/
-/YAVD/Assets/AssetStoreTools*
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /YAVD/.vs/
