@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2a93663b080f9ca43b898a5fc811c5bc
-timeCreated: 1524582628
+timeCreated: 1524752551
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,12 +13,18 @@ ModelImporter:
     2300000: YAVD_Tiles-65
     3300000: YAVD_Tiles-65
     4300000: YAVD_Tiles-65
-  externalObjects: {}
+    6400000: YAVD_Tiles-65
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: palette
+    second: {fileID: 2100000, guid: 4e5a1c85da40ccb45b00ed14694d90b6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -45,17 +51,17 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    addColliders: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
-    weldVertices: 1
+    keepQuads: 1
+    weldVertices: 0
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8

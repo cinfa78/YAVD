@@ -1,24 +1,27 @@
 fileFormatVersion: 2
 guid: 0f0e5f81d075f124f92776c1472f3d9e
-timeCreated: 1524582627
+timeCreated: 1524752551
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: YAVD_Tiles-61
     100002: //RootNode
+    100004: YAVD_Tiles-61_root
     400000: YAVD_Tiles-61
     400002: //RootNode
+    400004: YAVD_Tiles-61_root
     2100000: palette
     2300000: YAVD_Tiles-61
     3300000: YAVD_Tiles-61
     4300000: YAVD_Tiles-61
+    6400000: YAVD_Tiles-61
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -44,18 +47,18 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
-    addColliders: 0
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    meshCompression: 3
+    addColliders: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
-    weldVertices: 1
+    keepQuads: 1
+    weldVertices: 0
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -68,7 +71,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
