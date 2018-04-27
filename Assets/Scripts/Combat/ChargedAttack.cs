@@ -10,6 +10,8 @@ public class ChargedAttack : MonoBehaviour {
     public float maxCharge = 10f;
     public Animator animator;
     private bool cooldown = false;
+    public float sogliaAttacco = 0.01f;
+    public MeshRenderer swordRenderer;
 
     private IEnumerator DecreaseCharge()
     {
@@ -27,15 +29,16 @@ public class ChargedAttack : MonoBehaviour {
 
     private void Attack()
     {
-        animator.SetBool("Charging", false);
+        swordRenderer.material.SetColor("_EmissionColor", Color.black);
         animator.SetTrigger("Attack");
-        animator.speed = chargeLevel / maxCharge;
+        animator.SetBool("Charging", false);
+        //animator.speed = chargeLevel / maxCharge;
         StartCoroutine(DecreaseCharge());
     }
 
     private void Charge()
     {
-        animator.speed = chargeLevel / maxCharge;
+        //animator.speed = chargeLevel / maxCharge;
         if (chargeLevel < maxCharge)
         {
             if (chargeLevel == 0f)
@@ -44,6 +47,7 @@ public class ChargedAttack : MonoBehaviour {
             }
 
             chargeLevel += Time.deltaTime * chargeFactor;
+            swordRenderer.material.SetColor("_EmissionColor", Color.red * chargeLevel);
             animator.SetFloat("Level", chargeLevel);
         }
     }
