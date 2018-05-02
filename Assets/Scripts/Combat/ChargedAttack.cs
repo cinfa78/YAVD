@@ -21,7 +21,7 @@ public class ChargedAttack : MonoBehaviour {
             chargeLevel = chargeLevel * 0.9f;
             if (chargeLevel < 0.01f) chargeLevel = 0f;
             animator.SetFloat("Level", chargeLevel);
-            print(chargeLevel);
+            //print(chargeLevel);
             yield return new WaitForFixedUpdate();
         }
         cooldown = false;

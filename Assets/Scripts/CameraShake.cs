@@ -14,7 +14,6 @@ public class CameraShake : MonoBehaviour {
         restTransform = transform;
         restPosition = transform.localPosition;
         restRotation = transform.localRotation;
-        print(restRotation.eulerAngles);
     }
     public void Shake()
     {
