@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public SPlayerStats statsDefault;
+    public SPlayerStats stats;
     public GameObject lookAtObject;
     public GameObject cameraLookAtObject;
     public SVector3Value cameraAimPosition;
@@ -11,15 +13,21 @@ public class Player : MonoBehaviour {
     public ASAudioEvent stepSound;
     AudioSource audioSource;
     
-    public SIntValue maxHp;
-    int hp;
     public SEvent playerMove;
     float speed;
     Vector3 previousPosition;
 
+    private void Reset()
+    {
+        stats.hp = statsDefault.hp;
+        stats.gold = statsDefault.gold;
+        stats.position = statsDefault.position;
+        stats.facingDirection = statsDefault.facingDirection;
+    }
+
     void Awake()
     {
-        hp = maxHp.Value;
+        
         lookAtPosition = Vector3.forward;
         speed = 0;
         previousPosition = transform.position;
@@ -35,10 +43,7 @@ public class Player : MonoBehaviour {
             lookAtPosition = hit.point;
         }
 
-
         lookAtPosition = new Vector3(lookAtPosition.x, transform.position.y, lookAtPosition.z);
-        
-
 
         lookAtObject.transform.position = lookAtPosition;
 
@@ -54,12 +59,13 @@ public class Player : MonoBehaviour {
 
         transform.rotation = Quaternion.Lerp(transform.rotation, directionToFace, 0.1f);
         transform.position += move;
-        
-        
+        stats.position = transform.position;
     }
+
     private void LateUpdate()
     {
         speed = Vector3.Magnitude(transform.position - previousPosition) / Time.deltaTime;
+        if (speed > 0) playerMove.Raise(); 
     }
 
 }
