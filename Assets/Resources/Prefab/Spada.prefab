@@ -34,8 +34,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4594313312304508}
-  - component: {fileID: 114686179451807484}
-  - component: {fileID: 95327337303692392}
   m_Layer: 0
   m_Name: Spada
   m_TagString: Untagged
@@ -69,6 +67,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4190619535454806}
+  - component: {fileID: 95442876386639578}
+  - component: {fileID: 114039826505810852}
   m_Layer: 0
   m_Name: Spada
   m_TagString: Untagged
@@ -123,14 +123,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076906054721838}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7000003, y: 0.7, z: 0.40000013}
   m_Children:
   - {fileID: 4376376909639864}
   m_Father: {fileID: 4190619535454806}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 89.951004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &23259061036614150
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -184,13 +184,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9, y: 1, z: 5}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!95 &95327337303692392
+--- !u!95 &95442876386639578
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076906054721838}
+  m_GameObject: {fileID: 1603463710517926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6fbec6bfca2bd2b4494f89215bf56cde, type: 2}
@@ -201,21 +201,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114686179451807484
+--- !u!114 &114039826505810852
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076906054721838}
+  m_GameObject: {fileID: 1603463710517926}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5704879bb65003b4fb6683f9586cbce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeFactor: 16
-  dischargeFactor: 0.5
-  sword: {fileID: 1076906054721838}
+  animator: {fileID: 95442876386639578}
+  chargeMultiplier: 1
+  maxCharge: 5
   chargeLevel: 0
-  maxCharge: 20
-  animator: {fileID: 95327337303692392}
-  sogliaAttacco: 0.01
+  meshRenderer: {fileID: 23259061036614150}
