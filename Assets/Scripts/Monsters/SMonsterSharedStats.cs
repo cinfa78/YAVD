@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "MonsterStats", menuName = "MonsterStats")]
 public class SMonsterSharedStats : ScriptableObject {
     public float damage;
     public float attackCooldown;

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMonsterBrain : ScriptableObject {
+public abstract class SMonsterBrain : ScriptableObject {
 
-    public virtual void Think(Monster monster){}
+    public abstract void Think(Monster monster);
+
+    public abstract float Damage(Monster monster, float damage, Vector3 from);
 }

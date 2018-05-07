@@ -6,7 +6,7 @@ public class Monster : MonoBehaviour {
 
     public SMonsterBrain brain;
     public SMonsterSharedStats stats;
-    public float health;
+    [SerializeField] public float health;
 
     void Start()
     {
@@ -17,9 +17,8 @@ public class Monster : MonoBehaviour {
         brain.Think(this);
 	}
 
-    public float Damage(int damage)
+    public float Damage(float damage, Vector3 from)
     {
-        health -= damage;
-        return health;
+        return brain.Damage(this, damage, from);
     }
 }

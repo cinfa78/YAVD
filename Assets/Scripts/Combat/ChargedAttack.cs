@@ -8,6 +8,9 @@ public class ChargedAttack : MonoBehaviour
     public Animator animator;
     public float chargeMultiplier;
     public float maxCharge;
+    public float attackRadius;
+    public float damageMultiplier;
+    public float baseAttackDamage;
     [SerializeField] private float chargeLevel = 0f;
 
     public MeshRenderer meshRenderer;
@@ -42,6 +45,20 @@ public class ChargedAttack : MonoBehaviour
             material.SetColor("_EmissionColor", Color.black);
             chargeLevel = 0f;
             animator.SetTrigger("Attack");
+
+            Damage();
+        }
+    }
+
+    private void Damage()
+    {
+        Collider[] enemiesHit;
+        enemiesHit = Physics.OverlapSphere(transform.position + Vector3.forward, attackRadius, 1 << 13);
+        Vector3 attackFrom = transform.position;
+        foreach(Collider enemy in enemiesHit)
+        {
+            print("Colpito " + enemy + gameObject);
+            enemy.GetComponent<Monster>().Damage((damageMultiplier * chargeLevel) + baseAttackDamage, attackFrom);
         }
     }
 }
