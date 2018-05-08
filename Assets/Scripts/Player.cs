@@ -19,6 +19,10 @@ public class Player : MonoBehaviour {
 
     private void Reset()
     {
+        if(stats == null)
+        {
+            stats = ScriptableObject.CreateInstance("SPlayerStats") as SPlayerStats;
+        }
         stats.hp = statsDefault.hp;
         stats.gold = statsDefault.gold;
         stats.position = statsDefault.position;
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour {
         speed = 0;
         previousPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
+        if (stats == null) Reset();
     }
 
 	void Update () {

@@ -12,10 +12,24 @@ public class SAudio : ASAudioEvent {
 
 	public override void Play(AudioSource source)
     {
+        if (audioClips.Length == 0) return;
         float basePitch = source.pitch;
         float baseVolume= source.volume;
-        if (audioClips.Length == 0) return;
+        
         source.clip = audioClips[Random.Range(0, audioClips.Length)];
+        source.pitch += Random.Range(-pitchVariation, +pitchVariation);
+        source.volume += Random.Range(-volumeVariation, +volumeVariation);
+        source.Play();
+        source.pitch = basePitch;
+        source.volume = baseVolume;
+    }
+    public override void Play(AudioSource source, int clipNumber = 0)
+    {
+        if (audioClips.Length == 0) return;
+        float basePitch = source.pitch;
+        float baseVolume = source.volume;
+        
+        source.clip = audioClips[clipNumber%audioClips.Length];
         source.pitch += Random.Range(-pitchVariation, +pitchVariation);
         source.volume += Random.Range(-volumeVariation, +volumeVariation);
         source.Play();

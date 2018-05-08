@@ -4301,7 +4301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsDefault: {fileID: 11400000, guid: 41168b45f975ad64caf06a88a10d3ea7, type: 2}
-  stats: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}
+  stats: {fileID: 0}
   lookAtObject: {fileID: 609600995}
   cameraLookAtObject: {fileID: 706527328}
   cameraAimPosition: {fileID: 11400000, guid: 66fb62984ff74b949a83fcb966b2566d, type: 2}
