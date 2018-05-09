@@ -41,6 +41,7 @@ public class ChargedAttack : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("Charging", false);
+            animator.speed = 1f;
 
             material.SetColor("_EmissionColor", Color.black);
             chargeLevel = 0f;
