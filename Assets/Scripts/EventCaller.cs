@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
 using System.Collections;
+
 using UnityEditor;
+
+using UnityEngine;
 
 [CustomEditor(typeof(SEvent))]
 public class ObjectBuilderEditor : Editor
@@ -16,3 +19,4 @@ public class ObjectBuilderEditor : Editor
         }
     }
 }
+#endif
