@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectPool : MonoBehaviour {
+[CreateAssetMenu(menuName ="YAVD/Objcet Pooler")]
+public class GameObjectPool : ScriptableObject {
 
     [System.Serializable]
     public class Pool
@@ -103,11 +104,17 @@ public class GameObjectPool : MonoBehaviour {
             {
                 objectsPool[poolerTag].Enqueue(g);
                 g = AddNewInstance(poolerTag);
+            }else if (g.activeSelf)
+            {
+                if (g.GetComponent<IPooledObject>() != null)
+                    g.GetComponent<IPooledObject>().OnDespawn();
             }
             g.transform.position = position;
             g.transform.rotation = rotation;
             g.transform.localScale = localScale;
             g.SetActive(true);
+            if (g.GetComponent<IPooledObject>()!=null)
+                g.GetComponent<IPooledObject>().OnSpawn();
             /*if (g.GetComponent<IonSpawn>() != null)
             {
                 g.GetComponent<IonSpawn>().spawn();

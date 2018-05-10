@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
 public interface IPooledObject {
-    void onSpawn();
-    void onDespawn();
+    void OnSpawn();
+    void OnDespawn();
 }

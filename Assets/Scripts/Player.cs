@@ -71,14 +71,16 @@ public class Player : MonoBehaviour {
         //debug
         if (move.magnitude > Mathf.Epsilon)
         {
-            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized * 32f;
+            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized *1f;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(destinationPoint), out hit, 5000f, 1 << 8))
             {
                 agent.SetDestination(hit.point);
             }
         }
-        else
+        else { 
             agent.SetDestination(transform.position);
+            agent.ResetPath();
+        }
         //transform.position += move;
 
         stats.position = transform.position;

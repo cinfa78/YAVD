@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ChargedAttack : MonoBehaviour
 {
-
+    public SEvent slashEvent;
+    public SWeaponStats stats;
+    private EventInfo slashInfo;
     public Animator animator;
-    public float chargeMultiplier;
-    public float maxCharge;
     public float attackRadius;
-    public float damageMultiplier;
-    public float baseAttackDamage;
     [SerializeField] private float chargeLevel = 0f;
 
     public MeshRenderer meshRenderer;
     private Material material;
     private float originalSpeed;
+
+    private void Awake()
+    {
+
+        slashInfo = new EventInfo();
+        slashInfo.AddFloat("damage", stats.damage);
+    }
 
     private void Start()
     {
@@ -29,29 +34,31 @@ public class ChargedAttack : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             animator.SetBool("Charging", true);
-            animator.speed = chargeLevel > 1f ? chargeLevel : 1f;
+            animator.speed = chargeLevel/stats.fullChargeTime;
 
-            if (chargeLevel >= maxCharge)
+            if (chargeLevel >= stats.fullChargeTime)
             {
+                chargeLevel = stats.fullChargeTime;
                 return;
             }
-            material.SetColor("_EmissionColor", (Color.red * chargeLevel / maxCharge));
-            chargeLevel += Time.deltaTime * chargeMultiplier;
+            material.SetColor("_EmissionColor", (Color.red * chargeLevel / stats.fullChargeTime));
+            chargeLevel += Time.deltaTime;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("Charging", false);
             animator.speed = 1f;
-
+            slashInfo.SetFloat("damage", stats.damage + stats.chargedDamage * chargeLevel / stats.fullChargeTime);            
+            animator.SetTrigger("Attack");            
+            slashEvent.Raise(slashInfo);
             material.SetColor("_EmissionColor", Color.black);
             chargeLevel = 0f;
-            animator.SetTrigger("Attack");
-
-            Damage();
+            //Damage();
         }
     }
 
-    private void Damage()
+    //da cambiare!
+    /*private void Damage()
     {
         Collider[] enemiesHit;
         enemiesHit = Physics.OverlapSphere(transform.position + Vector3.forward, attackRadius, 1 << 13);
@@ -59,7 +66,7 @@ public class ChargedAttack : MonoBehaviour
         foreach(Collider enemy in enemiesHit)
         {
             print("Colpito " + enemy + gameObject);
-            enemy.GetComponent<Monster>().Damage((damageMultiplier * chargeLevel) + baseAttackDamage, attackFrom);
+            enemy.GetComponent<Monster>().Damage((stats.chargedDamage * chargeLevel/ stats.fullChargeTime) + stats.damage, attackFrom);
         }
-    }
+    }*/
 }

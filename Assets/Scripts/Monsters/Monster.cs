@@ -16,6 +16,11 @@ public class Monster : MonoBehaviour {
     void Update () {
         brain.Think(this);
 	}
+    public void CheckDamage(EventInfo slashInfo)
+    {
+        if (true)
+            Damage(slashInfo.GetFloat("damage"),Vector3.zero);
+    }
 
     public float Damage(float damage, Vector3 from)
     {
