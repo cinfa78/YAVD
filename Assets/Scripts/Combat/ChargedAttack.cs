@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ChargedAttack : MonoBehaviour
 {
-    public SEvent slashEvent;
-    public SWeaponStats stats;
-    private EventInfo slashInfo;
+    
+    public SWeaponStats stats;    
     public Animator animator;
     public float attackRadius;
     [SerializeField] private float chargeLevel = 0f;
@@ -14,13 +13,12 @@ public class ChargedAttack : MonoBehaviour
     public MeshRenderer meshRenderer;
     private Material material;
     private float originalSpeed;
+    float damage;
 
-    private void Awake()
+    /*private void Awake()
     {
-
-        slashInfo = new EventInfo();
-        slashInfo.AddFloat("damage", stats.damage);
-    }
+        
+    }*/
 
     private void Start()
     {
@@ -48,25 +46,19 @@ public class ChargedAttack : MonoBehaviour
         {
             animator.SetBool("Charging", false);
             animator.speed = 1f;
-            slashInfo.SetFloat("damage", stats.damage + stats.chargedDamage * chargeLevel / stats.fullChargeTime);            
-            animator.SetTrigger("Attack");            
-            slashEvent.Raise(slashInfo);
+            damage = stats.damage + stats.chargedDamage * chargeLevel / stats.fullChargeTime;
+            animator.SetTrigger("Attack");
+
             material.SetColor("_EmissionColor", Color.black);
             chargeLevel = 0f;
-            //Damage();
         }
     }
 
-    //da cambiare!
-    /*private void Damage()
-    {
-        Collider[] enemiesHit;
-        enemiesHit = Physics.OverlapSphere(transform.position + Vector3.forward, attackRadius, 1 << 13);
-        Vector3 attackFrom = transform.position;
-        foreach(Collider enemy in enemiesHit)
+    public void DoDamage(Collider other)
+    {        
+        if (other.gameObject.GetComponent<IDamageable>() != null && other.tag!="Player")
         {
-            print("Colpito " + enemy + gameObject);
-            enemy.GetComponent<Monster>().Damage((stats.chargedDamage * chargeLevel/ stats.fullChargeTime) + stats.damage, attackFrom);
+            other.gameObject.GetComponent<IDamageable>().Hit(damage);
         }
-    }*/
+    }
 }

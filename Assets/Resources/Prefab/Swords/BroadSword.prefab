@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 33148485920636502}
   - component: {fileID: 23385525855280072}
   - component: {fileID: 65854393388516936}
+  - component: {fileID: 114876751922369796}
   m_Layer: 0
   m_Name: Sword 2
   m_TagString: Untagged
@@ -150,10 +151,10 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476465320243922}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9, y: 1.0000002, z: 5.000001}
+  m_Size: {x: 9, y: 1.0000002, z: 5}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!95 &95271234268586316
 Animator:
@@ -172,6 +173,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114876751922369796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476465320243922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05105a81e961c94b97d655add60ba16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterWeaponGameObject: {fileID: 114945438989337726}
 --- !u!114 &114945438989337726
 MonoBehaviour:
   m_ObjectHideFlags: 1

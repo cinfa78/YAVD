@@ -2,26 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour {
+public class Monster : MonoBehaviour,IDamageable {
 
     public SMonsterBrain brain;
     public SMonsterSharedStats stats;
-    [SerializeField] public float health;
+    
+    [HideInInspector] public float hp;
 
-    void Start()
+    void Awake()
     {
-        health = stats.health;
+        hp = stats.health;
     }
 
     void Update () {
         brain.Think(this);
 	}
-    public void CheckDamage(EventInfo slashInfo)
+
+    public void Die()
     {
-        if (true)
-            Damage(slashInfo.GetFloat("damage"),Vector3.zero);
+        Destroy(gameObject);
     }
 
+    public void Hit(float damageReceived)
+    {
+        print(name + " has been Hit");
+        GameObjectPool.instance.Spawn("Blood", transform.position + Vector3.up * 8f, transform.rotation, Vector3.one);
+        hp -= damageReceived;
+        if (hp <= 0)
+        {
+            hp = 0f;
+        }
+    }
     public float Damage(float damage, Vector3 from)
     {
         return brain.Damage(this, damage, from);

@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 11400000, guid: 26aa2fdb87d512e418c6c3b45983f458, type: 2}
   stats: {fileID: 11400000, guid: b0ba1a79fbca64549b27b3d11c00095f, type: 2}
-  health: 10
+  hp: 0
 --- !u!114 &114931439837624436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +193,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1592255232843142}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -202,7 +202,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 8
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

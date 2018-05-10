@@ -4,7 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(AudioSource))]
-public class Projectile : MonoBehaviour, IProjectile {
+public class Projectile : MonoBehaviour, IProjectile, IDamageable
+{
 
     Collider coll;
     public SFloatValue damage;
@@ -17,6 +18,7 @@ public class Projectile : MonoBehaviour, IProjectile {
     AudioSource audioSource;
     SEvent hitEvent;
     EventInfo projectileHitInfo;
+    public GameObjectPool fx;
 
     void Awake () {
         coll = GetComponent<Collider>();
@@ -33,8 +35,13 @@ public class Projectile : MonoBehaviour, IProjectile {
     }
 
     public void OnDespawn()
-    {
+    {        
         enabled = false;
+    }
+
+    public void Hit(float damageReceived)
+    {
+        OnDeflect();
     }
 
     public void OnHit() {
@@ -67,8 +74,10 @@ public class Projectile : MonoBehaviour, IProjectile {
         int collidedLayer = collision.gameObject.layer;
         if (tag == "Player")
         {
-            hitEvent.Raise(projectileHitInfo);
+            if (collision.gameObject.GetComponent<IDamageable>() != null)
+                collision.gameObject.GetComponent<IDamageable>().Hit(damage.Value);
         }
+
         if (collidedLayer == SortingLayer.NameToID("Map"))
         {
             OnHit();

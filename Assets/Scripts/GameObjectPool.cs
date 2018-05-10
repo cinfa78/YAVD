@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="YAVD/Objcet Pooler")]
-public class GameObjectPool : ScriptableObject {
+public class GameObjectPool : MonoBehaviour
+{
 
     [System.Serializable]
     public class Pool
@@ -27,6 +27,7 @@ public class GameObjectPool : ScriptableObject {
 
     void Awake()
     {
+        Debug.Log("Scriptable Awake " + name);
         InitializePool();
         instance = this;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour,IDamageable {
     public SPlayerStats statsDefault;
     public SPlayerStats stats;
     public GameObject lookAtObject;
@@ -15,7 +15,9 @@ public class Player : MonoBehaviour {
     public ASAudioEvent stepSound;
     AudioSource audioSource;
     
+    
     public SEvent playerMove;
+    public SEvent playerDeath;
     float speed;
     Vector3 previousPosition;
     NavMeshAgent agent;
@@ -40,6 +42,16 @@ public class Player : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         if (stats == null) Reset();
+    }
+
+    public void Hit(float damageReceived)
+    {
+        stats.hp -= damageReceived;
+        if (stats.hp <= 0)
+        {
+            stats.hp = 0f;
+            playerDeath.Raise();
+        }
     }
 
 	void Update () {
