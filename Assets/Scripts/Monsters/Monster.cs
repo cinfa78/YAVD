@@ -9,6 +9,21 @@ public class Monster : MonoBehaviour,IDamageable {
     
     [HideInInspector] public float hp;
 
+    public bool allerted = false;
+    public GameObject target = null;
+
+    public void GetAllerted(GameObject target)
+    {
+        allerted = true;
+        this.target = target;
+    }
+
+    public void StopAlert()
+    {
+        allerted = false;
+        target = null;
+    }
+
     void Awake()
     {
         hp = stats.health;
