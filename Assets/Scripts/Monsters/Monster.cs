@@ -12,6 +12,18 @@ public class Monster : MonoBehaviour,IDamageable {
     public bool allerted = false;
     public GameObject target = null;
 
+    public GameObject aim;
+
+    private void OnEnable()
+    {
+        aim = new GameObject("Monster aim point");
+    }
+
+    private void OnDisable()
+    {
+        Destroy(aim);
+    }
+
     public void GetAllerted(GameObject target)
     {
         allerted = true;

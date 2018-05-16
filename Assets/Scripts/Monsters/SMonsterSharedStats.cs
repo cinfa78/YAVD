@@ -9,4 +9,6 @@ public class SMonsterSharedStats : ScriptableObject {
     public float health;
     public float speed;
     public float sight;
+    public float sightAngle;
+    public float aimSpeed;
 }

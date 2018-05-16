@@ -15,12 +15,28 @@ public class Player : MonoBehaviour,IDamageable {
     public ASAudioEvent stepSound;
     AudioSource audioSource;
     
-    
     public SEvent playerMove;
     public SEvent playerDeath;
     float speed;
     Vector3 previousPosition;
     NavMeshAgent agent;
+
+    #region"Public static reference to this"
+    public static Player instance = null;
+
+    private void OnEnable()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    private void OnDisable()
+    {
+        instance = null;
+    }
+    #endregion
 
     private void Reset()
     {
