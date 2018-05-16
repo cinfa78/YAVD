@@ -8,7 +8,8 @@ public class SMonsterSharedStats : ScriptableObject {
     public float attackCooldown;
     public float health;
     public float speed;
-    public float sight;
+    public float sightDistance;
     public float sightAngle;
+    public float aimAngle;
     public float aimSpeed;
 }

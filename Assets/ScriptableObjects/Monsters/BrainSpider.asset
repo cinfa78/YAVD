@@ -11,3 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04dd5061837088443814fd6ee9b7cfc6, type: 3}
   m_Name: BrainSpider
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}

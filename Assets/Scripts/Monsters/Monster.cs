@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour,IDamageable {
+public class Monster : MonoBehaviour, IDamageable
+{
 
     public SMonsterBrain brain;
     public SMonsterSharedStats stats;
-    
-    [HideInInspector] public float hp;
+
+    [HideInInspector]
+    public float hp;
 
     public bool allerted = false;
-    public GameObject target = null;
+    public Vector3 target;
+    public Vector3 aim;
 
-    public GameObject aim;
+
 
     private void OnEnable()
     {
-        aim = new GameObject("Monster aim point");
+        aim = Vector3.forward;
     }
 
-    private void OnDisable()
+    /*private void OnDisable()
     {
-        Destroy(aim);
-    }
+     
+    }*/
 
-    public void GetAllerted(GameObject target)
+    public void GetAllerted(Vector3 target)
     {
         allerted = true;
         this.target = target;
@@ -33,7 +36,7 @@ public class Monster : MonoBehaviour,IDamageable {
     public void StopAlert()
     {
         allerted = false;
-        target = null;
+        target = Vector3.up;
     }
 
     void Awake()
@@ -41,10 +44,11 @@ public class Monster : MonoBehaviour,IDamageable {
         hp = stats.health;
     }
 
-    void Update () {
+    void Update()
+    {
         brain.Think(this);
-	}
-
+    }
+    
     public void Die()
     {
         Destroy(gameObject);
@@ -60,6 +64,7 @@ public class Monster : MonoBehaviour,IDamageable {
             hp = 0f;
         }
     }
+
     public float Damage(float damage, Vector3 from)
     {
         return brain.Damage(this, damage, from);
