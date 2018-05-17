@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitEntrance : MonoBehaviour {
+public class ExitEntrance : MonoBehaviour,IInteractable {
 
     public bool blocked = false;
     public Animator doorAnimator;
     public GameObject playerSpawnPoint;
 	
+    
 	public void Open()
     {
         if(!blocked)
@@ -20,9 +21,13 @@ public class ExitEntrance : MonoBehaviour {
     }
     public void Block()
     {
+        blocked = true;
         doorAnimator.SetTrigger("block");
     }
-
+    public void Interact()
+    {
+        Open();
+    }
     /*void Update () {
 		
 	}*/

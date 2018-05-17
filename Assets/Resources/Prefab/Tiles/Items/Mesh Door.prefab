@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33888766559971974}
   - component: {fileID: 23162710280968338}
   - component: {fileID: 65826826208114462}
+  - component: {fileID: 208367445359833330}
   m_Layer: 0
   m_Name: Mesh Door
   m_TagString: Untagged
@@ -95,3 +96,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.000002, y: 12, z: 2.0000005}
   m_Center: {x: 0, y: 6, z: 0}
+--- !u!208 &208367445359833330
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157619022447344}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4, y: 6.0000005, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 6.0000005, z: 0}
+  m_TimeToStationary: 0.5

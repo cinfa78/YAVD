@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33109119488269744}
   - component: {fileID: 23698146567703920}
   - component: {fileID: 65836666501770686}
+  - component: {fileID: 208515439928779764}
   m_Layer: 0
   m_Name: Mesh Grate
   m_TagString: Untagged
@@ -95,3 +96,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 12, z: 2}
   m_Center: {x: -4, y: 6, z: 0}
+--- !u!208 &208515439928779764
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958753928669502}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4, y: 6.0000005, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -4, y: 6.0000005, z: 0}
+  m_TimeToStationary: 0.5
