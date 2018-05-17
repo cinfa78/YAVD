@@ -38,6 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4255818189899374}
+  - component: {fileID: 114443007673851700}
   m_Layer: 12
   m_Name: TrapLava
   m_TagString: FloorTrap
@@ -125,6 +126,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13, y: 2, z: 13}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &114443007673851700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528880535463222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c9260ecccb20b4490fc055922845f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleRandomAngles:
+  - 0
+  - 90
+  - 180
+  - 270
+  meshes:
+  - {fileID: 1030267442381866}
 --- !u!114 &114934963342641008
 MonoBehaviour:
   m_ObjectHideFlags: 1
