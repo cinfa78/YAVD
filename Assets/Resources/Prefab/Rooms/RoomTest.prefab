@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65494610130611416}
   m_Layer: 12
   m_Name: Mesh Grass (7)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65359880103706050}
   m_Layer: 12
   m_Name: Mesh Grass (30)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 65854925682579302}
   m_Layer: 12
   m_Name: Mesh Grass (46)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -131,11 +131,11 @@ GameObject:
   - component: {fileID: 65694250809735300}
   m_Layer: 12
   m_Name: Mesh Grass (14)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1067585276990972
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 23984778888289346}
   m_Layer: 12
   m_Name: Mesh Acid Pool
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 65343655998540352}
   m_Layer: 12
   m_Name: Mesh Grass (44)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 65269043714200330}
   m_Layer: 12
   m_Name: Mesh Grass (5)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 65675341254757716}
   m_Layer: 12
   m_Name: Mesh Grass (15)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 65725589628928440}
   m_Layer: 12
   m_Name: Mesh Grass (31)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 65820708398517320}
   m_Layer: 12
   m_Name: Mesh Grass (26)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 65775513691023410}
   m_Layer: 12
   m_Name: Mesh Grass (24)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 65493823180179226}
   m_Layer: 12
   m_Name: Mesh Grass (20)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 65443376842693114}
   m_Layer: 12
   m_Name: Mesh Grass (37)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 65259294911507874}
   m_Layer: 12
   m_Name: Mesh Grass (27)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 65271294442315262}
   m_Layer: 12
   m_Name: Mesh Grass (43)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 65727888413543594}
   m_Layer: 12
   m_Name: Mesh Grass (11)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 65865436402384050}
   m_Layer: 12
   m_Name: Mesh Grass (16)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 65982088410984170}
   m_Layer: 12
   m_Name: Mesh Grass (23)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 65232882615045442}
   m_Layer: 12
   m_Name: Mesh Grass (8)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 65916154066858298}
   m_Layer: 12
   m_Name: Mesh Grass (9)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 65419216867255860}
   m_Layer: 12
   m_Name: Mesh Grass
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 65263048908123768}
   m_Layer: 12
   m_Name: Mesh Grass (29)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 23271289702759410}
   m_Layer: 12
   m_Name: Mesh Lava Pool
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 65721274681580346}
   m_Layer: 12
   m_Name: Mesh Trap Grid
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 65988938882678424}
   m_Layer: 12
   m_Name: Mesh Grass (36)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 65147309552282978}
   m_Layer: 12
   m_Name: Mesh Grass (22)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 65474329583211792}
   m_Layer: 12
   m_Name: Mesh Grass (34)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 65749892270607262}
   m_Layer: 12
   m_Name: Mesh Grass (2)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 65809746153256072}
   m_Layer: 12
   m_Name: Mesh Grass (42)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 65366006450662614}
   m_Layer: 12
   m_Name: Mesh Grass (10)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 65263636500163108}
   m_Layer: 12
   m_Name: Mesh Grass (47)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 65283860416915914}
   m_Layer: 12
   m_Name: Mesh Grass (21)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 65781182210413902}
   m_Layer: 12
   m_Name: Mesh Grass (25)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 65396336656401518}
   m_Layer: 12
   m_Name: Mesh Grass (3)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 65335461541846382}
   m_Layer: 12
   m_Name: Mesh Floor 1
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 65311260191128312}
   m_Layer: 12
   m_Name: Mesh Grass (48)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 65699332222942942}
   m_Layer: 12
   m_Name: Mesh Grass (41)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 65707684101124750}
   m_Layer: 12
   m_Name: Mesh Grass (19)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 65271770939211298}
   m_Layer: 12
   m_Name: Mesh Grass (1)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 65057996080948192}
   m_Layer: 12
   m_Name: Mesh Grass (35)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 65351177591110812}
   m_Layer: 12
   m_Name: Mesh Grass (12)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 65572983238096028}
   m_Layer: 12
   m_Name: Mesh Grass (40)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1470,7 +1470,7 @@ GameObject:
   - component: {fileID: 65208858312270946}
   m_Layer: 12
   m_Name: Mesh Grass (28)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 65967852199598648}
   m_Layer: 12
   m_Name: Mesh Grass (33)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1530,6 +1530,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!1 &1934394765672146
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4463828315971368}
+  - component: {fileID: 33811304577827712}
+  - component: {fileID: 23514784398476038}
+  - component: {fileID: 65216867091348732}
+  - component: {fileID: 65797153747356370}
+  m_Layer: 12
+  m_Name: Mesh Grass Wall (24)
+  m_TagString: Tile
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
 --- !u!1 &1935040462201924
 GameObject:
   m_ObjectHideFlags: 1
@@ -1543,7 +1562,7 @@ GameObject:
   - component: {fileID: 65345514756533064}
   m_Layer: 12
   m_Name: Mesh Grass (45)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1561,7 +1580,7 @@ GameObject:
   - component: {fileID: 65078163881834868}
   m_Layer: 12
   m_Name: Mesh Grass (32)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1579,7 +1598,7 @@ GameObject:
   - component: {fileID: 65131071595776290}
   m_Layer: 12
   m_Name: Mesh Grass (13)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1597,7 +1616,7 @@ GameObject:
   - component: {fileID: 65734005814360056}
   m_Layer: 12
   m_Name: Mesh Grass (6)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1615,7 +1634,7 @@ GameObject:
   - component: {fileID: 65415384406428744}
   m_Layer: 12
   m_Name: Mesh Grass (4)
-  m_TagString: Tile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2176,6 +2195,19 @@ Transform:
   m_Father: {fileID: 4718694590173616}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+--- !u!4 &4463828315971368
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934394765672146}
+  m_LocalRotation: {x: -0, y: 0.70710886, z: -0, w: -0.7071048}
+  m_LocalPosition: {x: 32, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 4718694590173616}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!4 &4470675931556962
 Transform:
   m_ObjectHideFlags: 1
@@ -2235,7 +2267,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1035335704922242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4721755357812666}
@@ -2585,6 +2617,7 @@ Transform:
   - {fileID: 4366322398489948}
   - {fileID: 4042209196383630}
   - {fileID: 4442129437697854}
+  - {fileID: 4463828315971368}
   m_Father: {fileID: 4514995427374542}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4250,6 +4283,40 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621499039666190}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 11b2a580e589c1f4d80f7ce493e3b993, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23514784398476038
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934394765672146}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -6285,6 +6352,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029441073703192}
   m_Mesh: {fileID: 4300000, guid: 14bc5b9db97bbc643967328781b5c8c6, type: 3}
+--- !u!33 &33811304577827712
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934394765672146}
+  m_Mesh: {fileID: 4300000, guid: 5e4d8fdfa69cca54a912eb95d780d2aa, type: 3}
 --- !u!33 &33813886465050038
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -6627,6 +6701,18 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905288345770864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.000004, y: 2, z: 16.000004}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &65216867091348732
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934394765672146}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -7557,6 +7643,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 16.000004, y: 2, z: 16.000004}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &65797153747356370
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934394765672146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.000004, y: 15, z: 2}
+  m_Center: {x: 0, y: 7.5, z: 7}
 --- !u!65 &65809746153256072
 BoxCollider:
   m_ObjectHideFlags: 1

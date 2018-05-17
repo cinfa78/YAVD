@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - FloorTrap
   - Tile
+  - Spawner
   layers:
   - Default
   - TransparentFX

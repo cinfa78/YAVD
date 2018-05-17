@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4069880277469664}
   - component: {fileID: 33888766559971974}
   - component: {fileID: 23162710280968338}
-  - component: {fileID: 65237414318506976}
+  - component: {fileID: 114288290113460594}
+  - component: {fileID: 65684557592287952}
   m_Layer: 0
   m_Name: Mesh Trap Spikes
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157619022447344}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: -12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,15 +84,28 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157619022447344}
   m_Mesh: {fileID: 4300000, guid: fe8a5be84e022b343a389a79ce65fa33, type: 3}
---- !u!65 &65237414318506976
+--- !u!65 &65684557592287952
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157619022447344}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12.000003, y: 10, z: 12.000003}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &114288290113460594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157619022447344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489a0095e8d9eb242b76c522deaf2e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCollider: {fileID: 0}
+  damage: 1

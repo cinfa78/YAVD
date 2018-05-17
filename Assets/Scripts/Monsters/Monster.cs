@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour, IDamageable
 {
-
     public SMonsterBrain brain;
     public SMonsterSharedStats stats;
 
@@ -16,17 +15,11 @@ public class Monster : MonoBehaviour, IDamageable
     public Vector3 aim;
 
 
-
     private void OnEnable()
     {
         aim = Vector3.forward;
     }
-
-    /*private void OnDisable()
-    {
-     
-    }*/
-
+    
     public void GetAllerted(Vector3 target)
     {
         allerted = true;
