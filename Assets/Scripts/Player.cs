@@ -48,6 +48,8 @@ public class Player : MonoBehaviour,IDamageable {
         stats.gold = statsDefault.gold;
         stats.position = statsDefault.position;
         stats.facingDirection = statsDefault.facingDirection;
+
+
     }
 
     void Awake()
@@ -58,6 +60,11 @@ public class Player : MonoBehaviour,IDamageable {
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         if (stats == null) Reset();
+
+    }
+    void Start()
+    {
+        
     }
 
     public void Hit(float damageReceived)
@@ -71,6 +78,19 @@ public class Player : MonoBehaviour,IDamageable {
     }
 
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            NavMeshHit closestHit;
+
+            if (NavMesh.SamplePosition(gameObject.transform.position, out closestHit, 500f, NavMesh.AllAreas)) { 
+                gameObject.transform.position = closestHit.position;
+                //agent = gameObject.AddComponent<NavMeshAgent>();
+            }
+            else
+                Debug.LogError("Could not find position on NavMesh!");
+        }
+
         previousPosition = transform.position;
         RaycastHit hit;
 
@@ -81,7 +101,8 @@ public class Player : MonoBehaviour,IDamageable {
 
         lookAtPosition = new Vector3(lookAtPosition.x, transform.position.y, lookAtPosition.z);
 
-        lookAtObject.transform.position = lookAtPosition;
+        if(lookAtObject)
+            lookAtObject.transform.position = lookAtPosition;
 
         cameraAimPosition.Value = transform.position+(lookAtPosition - transform.position) * 0.5f;
         

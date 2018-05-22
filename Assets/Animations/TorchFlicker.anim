@@ -65,7 +65,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -123,7 +123,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -175,7 +175,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -197,7 +197,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -209,28 +209,28 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3033001127
+      path: 3492909030
       attribute: 2526845255
       script: {fileID: 0}
       typeID: 108
       customType: 25
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3033001127
+      path: 3492909030
       attribute: 4215373228
       script: {fileID: 0}
       typeID: 108
       customType: 25
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3033001127
+      path: 3492909030
       attribute: 2334886179
       script: {fileID: 0}
       typeID: 108
       customType: 25
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3033001127
+      path: 3492909030
       attribute: 304273561
       script: {fileID: 0}
       typeID: 108
@@ -307,7 +307,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -365,7 +365,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -417,7 +417,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   - curve:
@@ -439,7 +439,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: Point light
+    path: Torch Light
     classID: 108
     script: {fileID: 0}
   m_EulerEditorCurves: []

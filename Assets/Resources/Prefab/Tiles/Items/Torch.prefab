@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4842413922224600}
   - component: {fileID: 108969222753520026}
   m_Layer: 0
-  m_Name: Point light
+  m_Name: Torch Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,4 +279,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75b78e04164a0c4ea0bff7ee68d471c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lit: 0
+  lit: 1
