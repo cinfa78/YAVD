@@ -8,6 +8,7 @@ public class Player : MonoBehaviour,IDamageable {
     public SPlayerStats statsDefault;
     public SPlayerStats stats;
     public GameObject lookAtObject;
+    public GameObject movingDirectionObject;
     public GameObject cameraLookAtObject;
     public SVector3Value cameraAimPosition;
     Quaternion directionToFace;
@@ -79,7 +80,7 @@ public class Player : MonoBehaviour,IDamageable {
 
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             NavMeshHit closestHit;
 
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour,IDamageable {
             }
             else
                 Debug.LogError("Could not find position on NavMesh!");
-        }
+        }*/
 
         previousPosition = transform.position;
         RaycastHit hit;
@@ -120,16 +121,18 @@ public class Player : MonoBehaviour,IDamageable {
         //debug
         if (move.magnitude > Mathf.Epsilon)
         {
-            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized *1f;
+            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized *16f;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(destinationPoint), out hit, 5000f, 1 << 8))
             {
                 agent.SetDestination(hit.point);
+                print(transform.position+" "+hit.point);
             }
         }
         else { 
             agent.SetDestination(transform.position);
             agent.ResetPath();
         }
+        movingDirectionObject.transform.position = agent.destination;
         //transform.position += move;
 
         stats.position = transform.position;
