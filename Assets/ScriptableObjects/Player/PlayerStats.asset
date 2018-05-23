@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f760bbbf9c2d65d47b288c6029cb51f1, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 0
   gold: 0
   roomNumber: 0
-  position: {x: 0, y: 0, z: 0}
+  position: {x: -9, y: 0.5, z: 0}
   facingDirection: {x: 0, y: 0, z: 0}
+  mesh: {fileID: 1494924870465936, guid: 9f86a2076e821c944aa021068b7d1bdf, type: 2}
+  sword: {fileID: 1004614470255350, guid: 9980ee123186ffc45baa39c49feb6230, type: 2}
   description: Valori attuali del giocatore

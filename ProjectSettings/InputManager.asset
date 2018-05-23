@@ -293,3 +293,51 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 0
+  - serializedVersion: 3
+    m_Name: CameraRotate
+    descriptiveName: Rotate Camera Left
+    descriptiveNegativeName: Rotate Camera Right
+    negativeButton: joystick button 2
+    positiveButton: joystick button 3
+    altNegativeButton: q
+    altPositiveButton: e
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Pause
+    descriptiveName: Pause Game
+    descriptiveNegativeName: 
+    negativeButton: joystick button 6
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: p
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Quit
+    descriptiveName: Exit Game
+    descriptiveNegativeName: 
+    negativeButton: joystick button 7
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: escape
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1

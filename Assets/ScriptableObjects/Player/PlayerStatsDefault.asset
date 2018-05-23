@@ -16,4 +16,6 @@ MonoBehaviour:
   roomNumber: 0
   position: {x: 0, y: 0, z: 0}
   facingDirection: {x: 0, y: 0, z: 0}
+  mesh: {fileID: 1494924870465936, guid: 9f86a2076e821c944aa021068b7d1bdf, type: 2}
+  sword: {fileID: 1004614470255350, guid: 9980ee123186ffc45baa39c49feb6230, type: 2}
   description: Valori di default per il reset del giocatore

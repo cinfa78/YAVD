@@ -8,6 +8,7 @@ TagManager:
   - FloorTrap
   - Tile
   - Spawner
+  - SpawnerPlayer
   layers:
   - Default
   - TransparentFX

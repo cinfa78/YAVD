@@ -18,6 +18,7 @@ public class Player : MonoBehaviour,IDamageable {
     
     public SEvent playerMove;
     public SEvent playerDeath;
+    public SEvent playerStatsChangeEvent;
     float speed;
     Vector3 previousPosition;
     NavMeshAgent agent;
@@ -60,8 +61,12 @@ public class Player : MonoBehaviour,IDamageable {
         previousPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
+        GameObject meshContainer = transform.Find("MeshContainer").gameObject;
+        GameObject mesh = GameObject.Instantiate(stats.mesh,meshContainer.transform) as GameObject;
+        GameObject swordContainer = transform.Find("SwordAttachment").gameObject;
+        mesh = GameObject.Instantiate(stats.sword, swordContainer.transform) as GameObject;        
         if (stats == null) Reset();
-
+        if (stats.hp <= 0) Reset();
     }
     void Start()
     {
@@ -71,6 +76,7 @@ public class Player : MonoBehaviour,IDamageable {
     public void Hit(float damageReceived)
     {
         stats.hp -= damageReceived;
+        playerStatsChangeEvent.Raise();
         if (stats.hp <= 0)
         {
             stats.hp = 0f;
@@ -125,11 +131,12 @@ public class Player : MonoBehaviour,IDamageable {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(destinationPoint), out hit, 5000f, 1 << 8))
             {
                 agent.SetDestination(hit.point);
-                print(transform.position+" "+hit.point);
+                //print(transform.position+" "+hit.point);
             }
         }
         else { 
             agent.SetDestination(transform.position);
+            agent.velocity *= 0.5f; ;
             agent.ResetPath();
         }
         movingDirectionObject.transform.position = agent.destination;

@@ -5,17 +5,17 @@ using UnityEngine.AI;
 
 public class NavMeshBuilder : MonoBehaviour {
 
-    public Player player;
-
     void Start () {
-
-        NavMeshSurface[] surfaces = GameObject.FindObjectsOfType<NavMeshSurface>();
-        /*for (int i = 0; i < surfaces.Length; i++)
-        {
-            surfaces[i].BuildNavMesh();
-        }*/
-        surfaces[0].BuildNavMesh();
-        GameObject.Instantiate(player, Vector3.right*48, Quaternion.identity);
+        CreateLevelNavmesh();
 	}
-	
+
+	public void CreateLevelNavmesh()
+    {
+        NavMeshSurface surface = GameObject.FindObjectOfType<NavMeshSurface>();
+        if (surface)
+        {
+            surface.BuildNavMesh();
+        }
+    }
+
 }

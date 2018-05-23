@@ -29,7 +29,7 @@ public class ChargedAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetButton("Fire1"))
         {
             animator.SetBool("Charging", true);
             animator.speed = chargeLevel/stats.fullChargeTime;
@@ -42,7 +42,7 @@ public class ChargedAttack : MonoBehaviour
             material.SetColor("_EmissionColor", (Color.red * chargeLevel / stats.fullChargeTime));
             chargeLevel += Time.deltaTime;
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetButtonUp("Fire1"))
         {
             animator.SetBool("Charging", false);
             animator.speed = 1f;

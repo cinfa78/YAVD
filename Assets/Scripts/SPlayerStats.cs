@@ -8,5 +8,7 @@ public class SPlayerStats : ScriptableObject {
     public int roomNumber;
     public Vector3 position;
     public Vector3 facingDirection;
+    public GameObject mesh;
+    public GameObject sword;
     public string description;
 }
