@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23162710280968338}
   - component: {fileID: 65005912862621668}
   - component: {fileID: 114672764536531322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mesh Acid Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}

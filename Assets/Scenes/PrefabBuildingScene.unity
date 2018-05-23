@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312, g: 0.38074034, b: 0.35872734, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38074008, b: 0.35872707, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7092b7a2c4aed848bbd9a34fa4c8e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefabDefault: {fileID: 1401286135453984, guid: caf0038ee11765641963a2842d89ded2,
+  roomPrefabDefault: {fileID: 1440259900726008, guid: caf0038ee11765641963a2842d89ded2,
     type: 2}
 --- !u!114 &965206045
 MonoBehaviour:
@@ -343,6 +343,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   m_UseGeometry: 1
+  m_ignoreTriggers: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
