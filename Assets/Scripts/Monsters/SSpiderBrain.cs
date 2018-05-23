@@ -58,7 +58,8 @@ public class SSpiderBrain : SMonsterBrain
             var angle = AnglePlayer(monster);
             if (angle < monster.stats.sightAngle)
             {
-                Ray ray = new Ray(monster.transform.position, playerData.position);
+                
+                Ray ray = new Ray(monster.transform.position, playerData.position-monster.transform.position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, monster.stats.sightDistance, 1 << 11 | 1 << 12))
                 {
@@ -105,7 +106,6 @@ public class SSpiderBrain : SMonsterBrain
             if (angle < 1f)
                 AttackPlayer(monster);
         }
-
         
         //Cambiare introducendo gli stati del monster
         if (monster.hp <= 0)

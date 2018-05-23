@@ -144,7 +144,10 @@ public class Player : MonoBehaviour,IDamageable {
 
         stats.position = transform.position;
     }
-
+    public void EnableAgent(bool enabled)
+    {
+        agent.enabled = enabled;
+    }
     private void LateUpdate()
     {
         speed = Vector3.Magnitude(transform.position - previousPosition) / Time.deltaTime;
