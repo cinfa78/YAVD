@@ -37,7 +37,13 @@ public class SSpiderBrain : SMonsterBrain
     private void AttackPlayer(Monster monster)
     {
         //Devo dire a monster di sparare lo sputo
-        Debug.Log("Spider" + monster + " attacks the Player!");
+
+        if (monster.canShoot)
+        {
+            monster.Ranged();
+            GameObjectPool.instance.Spawn("Spiderweb", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
+            Debug.Log("Spider " + monster + " attacks the Player");
+        }
     }
 
     float AnglePlayer(Monster monster)
@@ -58,8 +64,8 @@ public class SSpiderBrain : SMonsterBrain
             var angle = AnglePlayer(monster);
             if (angle < monster.stats.sightAngle)
             {
-                
-                Ray ray = new Ray(monster.transform.position, playerData.position-monster.transform.position);
+
+                Ray ray = new Ray(monster.transform.position, playerData.position - monster.transform.position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, monster.stats.sightDistance, 1 << 11 | 1 << 12))
                 {
@@ -106,7 +112,7 @@ public class SSpiderBrain : SMonsterBrain
             if (angle < 1f)
                 AttackPlayer(monster);
         }
-        
+
         //Cambiare introducendo gli stati del monster
         if (monster.hp <= 0)
             monster.Die();

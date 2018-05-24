@@ -59,7 +59,7 @@ MonoBehaviour:
   - tag: LightParticles
     objToSpawn:
     - {fileID: 1611102148398792, guid: d56f749d5dfd36f4fae2891ef1bfe343, type: 2}
-    startingSize: 10
+    startingSize: 20
   - tag: Arrow
     objToSpawn: []
     startingSize: 0
@@ -67,8 +67,9 @@ MonoBehaviour:
     objToSpawn: []
     startingSize: 0
   - tag: Spiderweb
-    objToSpawn: []
-    startingSize: 0
+    objToSpawn:
+    - {fileID: 1459498843047304, guid: 032146bc4f9777047a022c29db6386a3, type: 2}
+    startingSize: 20
   - tag: Fireball
     objToSpawn: []
     startingSize: 0

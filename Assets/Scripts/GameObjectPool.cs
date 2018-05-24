@@ -114,6 +114,7 @@ public class GameObjectPool : MonoBehaviour
             g.transform.rotation = rotation;
             g.transform.localScale = localScale;
             g.SetActive(true);
+            
             if (g.GetComponent<IPooledObject>()!=null)
                 g.GetComponent<IPooledObject>().OnSpawn();
             /*if (g.GetComponent<IonSpawn>() != null)

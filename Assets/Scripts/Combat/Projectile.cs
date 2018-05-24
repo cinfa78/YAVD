@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Projectile : MonoBehaviour, IProjectile, IDamageable
 {
-
     Collider coll;
     public SFloatValue damage;
     public SFloatValue speed;
@@ -16,15 +15,14 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     public SAudio hitSound;
     public SAudio deflectSound;
     AudioSource audioSource;
-    SEvent hitEvent;
-    EventInfo projectileHitInfo;
-    public GameObjectPool fx;
+    public SEvent hitEvent;
+    //public EventInfo projectileHitInfo;
+    public string fxPoolTag;
 
-    void Awake () {
+    void Awake()
+    {
         coll = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
-        projectileHitInfo = new EventInfo();
-        projectileHitInfo.AddFloat("damage", damage.Value);
         deflectable = isDeflectable.Value;
     }
 
@@ -35,8 +33,8 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     }
 
     public void OnDespawn()
-    {        
-        enabled = false;
+    {
+        gameObject.SetActive(false);
     }
 
     public void Hit(float damageReceived)
@@ -44,14 +42,19 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
         OnDeflect();
     }
 
-    public void OnHit() {
+    public void OnHit()
+    {
+        print(name + " projectile onhit");
         hitSound.Play(audioSource);
-        enabled = false;
+        if (fxPoolTag.Length > 0)
+            GameObjectPool.instance.Spawn(fxPoolTag, transform.position, transform.rotation, Vector3.one);
+        gameObject.SetActive(false);
     }
 
     public void OnDeflect()
     {
-        if (deflectable) {
+        if (deflectable)
+        {
             deflectSound.Play(audioSource);
             transform.forward *= -1;
             deflectable = false;
@@ -60,7 +63,7 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
         {
             OnHit();
         }
-        
+
     }
 
     void Update()
@@ -72,13 +75,14 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     {
         string collidedTag = collision.gameObject.tag;
         int collidedLayer = collision.gameObject.layer;
-        if (tag == "Player")
+        //        print(name + " collided with " + collision.gameObject.name + " " + collidedTag);
+        if (collidedTag == "Player")
         {
             if (collision.gameObject.GetComponent<IDamageable>() != null)
                 collision.gameObject.GetComponent<IDamageable>().Hit(damage.Value);
+            OnHit();
         }
-
-        if (collidedLayer == SortingLayer.NameToID("Map"))
+        else if (collidedLayer == 12)
         {
             OnHit();
         }

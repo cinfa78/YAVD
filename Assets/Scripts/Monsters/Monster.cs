@@ -11,6 +11,8 @@ public class Monster : MonoBehaviour, IDamageable
 
     [HideInInspector]
     public float hp;
+    [HideInInspector]
+    public bool canShoot = true;
 
     public bool allerted = false;
     public Vector3 target;
@@ -34,7 +36,17 @@ public class Monster : MonoBehaviour, IDamageable
         allerted = false;
         target = Vector3.up;
     }
-
+    public void Ranged()
+    {
+        if (canShoot)
+            StartCoroutine(RangedCoroutine());
+    }
+    IEnumerator RangedCoroutine()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(stats.attackCooldown);
+        canShoot = true;
+    }
     void Awake()
     {
         hp = stats.health;

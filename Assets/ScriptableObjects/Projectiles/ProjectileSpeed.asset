@@ -8,14 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ad269d6f3a9024f98dc2dd9f45522d, type: 3}
-  m_Name: StatsSpider
+  m_Script: {fileID: 11500000, guid: 8ff16a72b13b5ae43a8c0051a65cd73d, type: 3}
+  m_Name: ProjectileSpeed
   m_EditorClassIdentifier: 
-  damage: 1
-  attackCooldown: 2
-  health: 4
-  speed: 1
-  sightDistance: 64
-  sightAngle: 45
-  aimAngle: 1
-  aimSpeed: 10
+  Value: 1
