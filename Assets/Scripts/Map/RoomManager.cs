@@ -34,7 +34,8 @@ public class RoomManager : MonoBehaviour
     public void InitRoom(GameObject roomPrefab, SMonsterSpawnConfiguration monstersToSpawn)
     {
         int i, j;
-        GameObject room = Instantiate(roomPrefab);
+        //GameObject room = 
+        Instantiate(roomPrefab);
 
         surface = GetComponent<NavMeshSurface>();
         surface.BuildNavMesh();

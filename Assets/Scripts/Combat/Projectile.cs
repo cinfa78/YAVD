@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Projectile : MonoBehaviour, IProjectile, IDamageable
 {
-    Collider coll;
+    //Collider coll;
     public SFloatValue damage;
     public SFloatValue speed;
     public SBoolValue isDeflectable;
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
 
     void Awake()
     {
-        coll = GetComponent<Collider>();
+        //coll = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
         deflectable = isDeflectable.Value;
     }

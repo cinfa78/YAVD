@@ -12,7 +12,7 @@ public class ChargedAttack : MonoBehaviour
 
     public MeshRenderer meshRenderer;
     private Material material;
-    private float originalSpeed;
+    //private float originalSpeed;
     float damage;
 
     /*private void Awake()
@@ -24,7 +24,7 @@ public class ChargedAttack : MonoBehaviour
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         material = meshRenderer.material;
-        originalSpeed = animator.speed;
+        //originalSpeed = animator.speed;
     }
 
     private void Update()

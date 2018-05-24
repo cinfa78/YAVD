@@ -401,7 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabDefault: {fileID: 1440259900726008, guid: caf0038ee11765641963a2842d89ded2,
     type: 2}
-  monstersToSpawnDefault: {fileID: 11400000, guid: c64112402e3b4364a984d7cafa7af285,
+  monstersToSpawnDefault: {fileID: 11400000, guid: e7ba5db7dd9c71c4ca4e3eff3ba761a9,
     type: 2}
 --- !u!114 &965206045
 MonoBehaviour:
@@ -700,48 +700,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &1698253393
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1857171341
 Prefab:
   m_ObjectHideFlags: 0

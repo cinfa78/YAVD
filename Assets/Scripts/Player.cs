@@ -54,16 +54,18 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     void Awake()
-    {        
+    {
         lookAtPosition = Vector3.forward;
         speed = 0;
         previousPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         GameObject meshContainer = transform.Find("MeshContainer").gameObject;
-        GameObject mesh = GameObject.Instantiate(stats.mesh, meshContainer.transform) as GameObject;
+        //GameObject mesh = 
+        GameObject.Instantiate(stats.mesh, meshContainer.transform);// as GameObject;
         GameObject swordContainer = transform.Find("SwordAttachment").gameObject;
-        mesh = GameObject.Instantiate(stats.sword, swordContainer.transform) as GameObject;
+        //mesh = 
+        GameObject.Instantiate(stats.sword, swordContainer.transform);// as GameObject;
         if (stats == null) Reset();
         if (stats.hp <= 0) Reset();
     }
@@ -147,7 +149,7 @@ public class Player : MonoBehaviour, IDamageable
 
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log(name+" interact;");
+            Debug.Log(name + " interact;");
         }
 
         stats.position = transform.position;

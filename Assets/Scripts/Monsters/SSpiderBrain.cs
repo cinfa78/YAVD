@@ -31,14 +31,14 @@ public class SSpiderBrain : SMonsterBrain
     private void Rotate(Monster monster)
     {
         //CAmbiare in Dire a monster di ruotare in una direzione, magari anche se a destra o sinistra        
-        monster.transform.Rotate(0f, monster.stats.speed, 0f);
+        monster.Rotate(monster.stats.speed);
     }
 
     private void AttackPlayer(Monster monster)
     {
         //Devo dire a monster di sparare lo sputo
 
-        if (monster.canShoot)
+        if (monster.canAttack)
         {
             monster.Ranged();
             GameObjectPool.instance.Spawn("Spiderweb", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);

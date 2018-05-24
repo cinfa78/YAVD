@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*using System.Collections;
+using System.Collections.Generic;*/
 using UnityEngine;
 
 public class DamageArea : MonoBehaviour
@@ -12,6 +12,7 @@ public class DamageArea : MonoBehaviour
         {
             //applica danno a chi è entrato nel trigger area
             collider.GetComponent<IDamageable>().Hit(damage.Value);
+            print(name + " damages " + collider.name);
         }
     }
 }

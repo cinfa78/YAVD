@@ -7,22 +7,22 @@ public class SGoblinBrain : SMonsterBrain
 {
 
     public SPlayerStats playerData;
-    
+
     private void Rotate(Monster monster)
     {
-        //CAmbiare in Dire a monster di ruotare in una direzione, magari anche se a destra o sinistra        
-        monster.transform.Rotate(0f, monster.stats.speed, 0f);
+        //monster.transform.Rotate(0f, monster.stats.speed, 0f);
+        monster.Rotate(monster.stats.speed);
     }
     void Wander(Monster monster)
     {
         monster.GoTo(monster.transform.position + new Vector3(Random.value, 0, Random.value));
-        
+
     }
     private void AttackPlayer(Monster monster)
     {
         //Devo dire a monster di sparare lo sputo
 
-        if (monster.canShoot)
+        if (monster.canAttack)
         {
             monster.Ranged();
             GameObjectPool.instance.Spawn("Arrow", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
@@ -40,6 +40,15 @@ public class SGoblinBrain : SMonsterBrain
         return Vector3.Distance(playerData.position, monster.transform.position);
     }
 
+    void LowerAlert(Monster monster)
+    {
+        if (monster.state == MonsterState.pursue)
+            monster.state = MonsterState.alerted;
+        else
+            monster.state = MonsterState.idle;
+        monster.PauseMovement(2f);
+    }
+
     private void TargetPlayer(Monster monster)
     {
         var distance = DistancePlayer(monster);
@@ -48,24 +57,28 @@ public class SGoblinBrain : SMonsterBrain
             var angle = AnglePlayer(monster);
             if (angle < monster.stats.sightAngle)
             {
-
                 Ray ray = new Ray(monster.transform.position, playerData.position - monster.transform.position);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, monster.stats.sightDistance, 1 << 11 | 1 << 12))
+                if (Physics.Raycast(ray, out hit, monster.stats.sightDistance, 1 << 11))//| 1 << 12
                 {
                     if (hit.collider.gameObject.layer == 11)
-                        monster.GetAllerted(playerData.position);
+                    {
+                        monster.state = MonsterState.pursue;
+                    }
                     else
-                        monster.StopAlert();
+                    {
+                        LowerAlert(monster);
+                    }
+
                 }
                 else
                 {
-                    monster.StopAlert();
+                    LowerAlert(monster);
                 }
             }
             else
             {
-                monster.StopAlert();
+                LowerAlert(monster);
             }
         }
     }
@@ -81,13 +94,39 @@ public class SGoblinBrain : SMonsterBrain
     public override void Think(Monster monster)
     {
         //Checks if player is in sight
-        TargetPlayer(monster);
+
+
+        switch (monster.state)
+        {
+            case MonsterState.idle:
+                Rotate(monster);
+                monster.aim = monster.transform.position + monster.transform.forward * 16f;
+                TargetPlayer(monster);
+                break;
+            case MonsterState.pursue:
+                monster.GoTo(monster.target);
+                if (DistancePlayer(monster) < monster.stats.attackDistance)
+                {
+                    monster.state = MonsterState.attack;
+                }
+                break;
+            case MonsterState.attack:
+                TargetPlayer(monster);
+                if (AnglePlayer(monster) < 1f)
+                    AttackPlayer(monster);                
+                break;
+            default:
+                TargetPlayer(monster);
+                break;
+        }
+
+
         //if it's not alerted, keeps rotating (randomly?)
         if (!monster.allerted)
         {
-            Rotate(monster);
+
             //aim is in front of the monster
-            monster.aim = monster.transform.position + monster.transform.forward * 16f;
+
         }
         else
         {

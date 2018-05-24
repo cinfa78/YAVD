@@ -12,7 +12,9 @@ public class Monster : MonoBehaviour, IDamageable
     [HideInInspector]
     public float hp;
     [HideInInspector]
-    public bool canShoot = true;
+    public bool canAttack = true;
+    [HideInInspector]
+    public bool canMove = true;
 
     public bool allerted = false;
     public Vector3 target;
@@ -25,34 +27,76 @@ public class Monster : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         aim = Vector3.forward;
+        agent.speed = stats.speed;
     }
 
     public void GetAllerted(Vector3 target)
     {
         allerted = true;
+        SetTarget(target);
+        state = MonsterState.alerted;
+    }
+
+    public void SetTarget(Vector3 target)
+    {
         this.target = target;
     }
 
     public void StopAlert()
     {
         allerted = false;
+        state = MonsterState.idle;
         target = Vector3.up;
     }
+    public void Melee()
+    {
+        if (canAttack)
+            StartCoroutine(MeleeCoroutine());
+    }
+    IEnumerator MeleeCoroutine()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(stats.attackCooldown);
+        canAttack = true;
+    }
+
     public void Ranged()
     {
-        if (canShoot)
+        if (canAttack)
             StartCoroutine(RangedCoroutine());
     }
+
     IEnumerator RangedCoroutine()
     {
-        canShoot = false;
+        canAttack = false;
         yield return new WaitForSeconds(stats.attackCooldown);
-        canShoot = true;
+        canAttack = true;
+    }
+
+    public void PauseMovement(float seconds)
+    {
+        if(canMove)
+            StartCoroutine(PauseMovementCoroutine(seconds));
+    }
+
+    IEnumerator PauseMovementCoroutine(float seconds)
+    {
+        canMove = false;
+        agent.velocity *= 0.5f;
+        yield return new WaitForSeconds(seconds);
+        canMove = true;
     }
 
     public void GoTo(Vector3 destination)
     {
-        agent.SetDestination(destination);
+        if(canMove)
+            agent.SetDestination(destination);
+    }
+
+    public void Rotate(float yAngle)
+    {
+        if(canMove)
+            transform.Rotate(Vector3.up * yAngle);
     }
 
     void Awake()
