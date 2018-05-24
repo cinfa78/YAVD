@@ -159,8 +159,9 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 9024bd91bc998a04383be3830ca14896, type: 2}
   hp: 0
   allerted: 0
-  target: {fileID: 0}
-  aim: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  aim: {x: 0, y: 0, z: 0}
+  monsterKilled: {fileID: 11400000, guid: 47ee6469efda47c4c8cdae15e413c446, type: 2}
 --- !u!114 &114931439837624436
 MonoBehaviour:
   m_ObjectHideFlags: 1

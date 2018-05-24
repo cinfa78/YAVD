@@ -27,7 +27,7 @@ public class GameObjectPool : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Scriptable Awake " + name);
+        //Debug.Log("Scriptable Awake " + name);
         InitializePool();
         instance = this;
     }

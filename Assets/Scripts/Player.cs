@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Player : MonoBehaviour,IDamageable {
+public class Player : MonoBehaviour, IDamageable
+{
     public SPlayerStats statsDefault;
     public SPlayerStats stats;
     public GameObject lookAtObject;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour,IDamageable {
     Vector3 lookAtPosition;
     public ASAudioEvent stepSound;
     AudioSource audioSource;
-    
+
     public SEvent playerMove;
     public SEvent playerDeath;
     public SEvent playerStatsChangeEvent;
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour,IDamageable {
 
     private void OnEnable()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour,IDamageable {
 
     private void Reset()
     {
-        if(stats == null)
+        if (stats == null)
         {
             stats = ScriptableObject.CreateInstance("SPlayerStats") as SPlayerStats;
         }
@@ -50,8 +51,6 @@ public class Player : MonoBehaviour,IDamageable {
         stats.gold = statsDefault.gold;
         stats.position = statsDefault.position;
         stats.facingDirection = statsDefault.facingDirection;
-
-
     }
 
     void Awake()
@@ -62,29 +61,36 @@ public class Player : MonoBehaviour,IDamageable {
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         GameObject meshContainer = transform.Find("MeshContainer").gameObject;
-        GameObject mesh = GameObject.Instantiate(stats.mesh,meshContainer.transform) as GameObject;
+        GameObject mesh = GameObject.Instantiate(stats.mesh, meshContainer.transform) as GameObject;
         GameObject swordContainer = transform.Find("SwordAttachment").gameObject;
-        mesh = GameObject.Instantiate(stats.sword, swordContainer.transform) as GameObject;        
+        mesh = GameObject.Instantiate(stats.sword, swordContainer.transform) as GameObject;
         if (stats == null) Reset();
         if (stats.hp <= 0) Reset();
     }
     void Start()
     {
-        
+
     }
 
     public void Hit(float damageReceived)
     {
         stats.hp -= damageReceived;
         playerStatsChangeEvent.Raise();
+        GameObjectPool.instance.Spawn("Blood", transform.position + Vector3.up * 8f, transform.rotation, Vector3.one);
         if (stats.hp <= 0)
         {
             stats.hp = 0f;
             playerDeath.Raise();
         }
+        else
+        {
+            //deve entrare nello stato di GRAZIA
+
+        }
     }
 
-	void Update () {
+    void Update()
+    {
 
         /*if (Input.GetKeyDown(KeyCode.N))
         {
@@ -101,18 +107,18 @@ public class Player : MonoBehaviour,IDamageable {
         previousPosition = transform.position;
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit,5000f,1<<8))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 5000f, 1 << 8))
         {
             lookAtPosition = hit.point;
         }
 
         lookAtPosition = new Vector3(lookAtPosition.x, transform.position.y, lookAtPosition.z);
 
-        if(lookAtObject)
+        if (lookAtObject)
             lookAtObject.transform.position = lookAtPosition;
 
-        cameraAimPosition.Value = transform.position+(lookAtPosition - transform.position) * 0.5f;
-        
+        cameraAimPosition.Value = transform.position + (lookAtPosition - transform.position) * 0.5f;
+
         cameraLookAtObject.transform.position = Vector3.Lerp(cameraLookAtObject.transform.position, cameraAimPosition.Value, 0.2f);
 
         directionToFace = Quaternion.LookRotation(lookAtPosition - transform.position);
@@ -122,25 +128,27 @@ public class Player : MonoBehaviour,IDamageable {
         Vector3 move = Vector3.zero;
         move.x = Input.GetAxis("Horizontal");
         move.y = Input.GetAxis("Vertical");
-        //move = Camera.main.transform.forward * Input.GetAxis("Vertical") + Camera.main.transform.right * Input.GetAxis("Horizontal");
 
-        //debug
         if (move.magnitude > Mathf.Epsilon)
         {
-            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized *16f;
+            Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized * 16f;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(destinationPoint), out hit, 5000f, 1 << 8))
             {
                 agent.SetDestination(hit.point);
-                //print(transform.position+" "+hit.point);
             }
         }
-        else { 
+        else
+        {
             agent.SetDestination(transform.position);
             agent.velocity *= 0.5f; ;
             agent.ResetPath();
         }
         movingDirectionObject.transform.position = agent.destination;
-        //transform.position += move;
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            Debug.Log(name+" interact;");
+        }
 
         stats.position = transform.position;
     }
@@ -151,7 +159,7 @@ public class Player : MonoBehaviour,IDamageable {
     private void LateUpdate()
     {
         speed = Vector3.Magnitude(transform.position - previousPosition) / Time.deltaTime;
-        if (speed > 0) playerMove.Raise(); 
+        if (speed > 0) playerMove.Raise();
     }
 
 }

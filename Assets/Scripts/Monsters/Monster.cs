@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Monster : MonoBehaviour, IDamageable
 {
     public SMonsterBrain brain;
@@ -13,13 +15,14 @@ public class Monster : MonoBehaviour, IDamageable
     public bool allerted = false;
     public Vector3 target;
     public Vector3 aim;
-
+    NavMeshAgent agent;
+    public SEvent monsterKilled;
 
     private void OnEnable()
     {
         aim = Vector3.forward;
     }
-    
+
     public void GetAllerted(Vector3 target)
     {
         allerted = true;
@@ -35,15 +38,17 @@ public class Monster : MonoBehaviour, IDamageable
     void Awake()
     {
         hp = stats.health;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
         brain.Think(this);
     }
-    
+
     public void Die()
     {
+        monsterKilled.Raise();
         Destroy(gameObject);
     }
 
@@ -56,6 +61,11 @@ public class Monster : MonoBehaviour, IDamageable
         {
             hp = 0f;
         }
+    }
+
+    public void EnableAgent(bool enabled)
+    {
+        agent.enabled = enabled;
     }
 
     public float Damage(float damage, Vector3 from)

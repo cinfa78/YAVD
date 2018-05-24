@@ -1,16 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpikesTrap : MonoBehaviour,ITrap {
 
     public Collider damageArea;
     public GameObject spikes;
     public Animator anim;
-	// Use this for initialization
-	void Start () {
-		
-	}
+	
 	public void Activate()
     {
         Debug.Log("Spikes Activated");
