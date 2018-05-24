@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabDefault: {fileID: 1440259900726008, guid: caf0038ee11765641963a2842d89ded2,
     type: 2}
-  monstersToSpawnDefault: {fileID: 11400000, guid: 9c0d88585f4898c40878efdc454ed110,
+  monstersToSpawnDefault: {fileID: 11400000, guid: c64112402e3b4364a984d7cafa7af285,
     type: 2}
 --- !u!114 &965206045
 MonoBehaviour:
@@ -517,6 +517,10 @@ Prefab:
       propertyPath: cameraLookAtObject
       value: 
       objectReference: {fileID: 1989091957}
+    - target: {fileID: 1969090528303198, guid: 9353a5c1c90db3547b957c2364af2d15, type: 2}
+      propertyPath: m_Name
+      value: SpherePlaceholder
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9353a5c1c90db3547b957c2364af2d15, type: 2}
   m_IsPrefabParent: 0
@@ -696,6 +700,48 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1698253393
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261411815190882, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 837f3af48efa6c742b98b2176d99ff03, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1857171341
 Prefab:
   m_ObjectHideFlags: 0

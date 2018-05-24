@@ -17,8 +17,10 @@ public class Monster : MonoBehaviour, IDamageable
     public bool allerted = false;
     public Vector3 target;
     public Vector3 aim;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public SEvent monsterKilled;
+
+    public MonsterState state;
 
     private void OnEnable()
     {
@@ -47,10 +49,17 @@ public class Monster : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(stats.attackCooldown);
         canShoot = true;
     }
+
+    public void GoTo(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+    }
+
     void Awake()
     {
         hp = stats.health;
         agent = GetComponent<NavMeshAgent>();
+        state = MonsterState.idle;
     }
 
     void Update()
@@ -60,7 +69,8 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        monsterKilled.Raise();
+        state = MonsterState.dead;
+        monsterKilled.Raise();        
         Destroy(gameObject);
     }
 

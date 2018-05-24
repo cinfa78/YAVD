@@ -61,8 +61,9 @@ MonoBehaviour:
     - {fileID: 1611102148398792, guid: d56f749d5dfd36f4fae2891ef1bfe343, type: 2}
     startingSize: 20
   - tag: Arrow
-    objToSpawn: []
-    startingSize: 0
+    objToSpawn:
+    - {fileID: 1727751187669588, guid: bdddf6d8262287c4c885353d7878f500, type: 2}
+    startingSize: 10
   - tag: Stone
     objToSpawn: []
     startingSize: 0
