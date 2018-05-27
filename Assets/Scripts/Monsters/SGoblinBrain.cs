@@ -64,6 +64,7 @@ public class SGoblinBrain : SMonsterBrain
                     if (hit.collider.gameObject.layer == 11)
                     {
                         monster.state = MonsterState.pursue;
+                        monster.target = playerData.position;
                     }
                     else
                     {
@@ -99,7 +100,19 @@ public class SGoblinBrain : SMonsterBrain
         switch (monster.state)
         {
             case MonsterState.idle:
-                Rotate(monster);
+                if (Random.value > 0.8f)
+                {
+                    Rotate(monster);
+
+                }
+                monster.aim = monster.transform.position + monster.transform.forward * 16f;
+                TargetPlayer(monster);
+                break;
+            case MonsterState.alerted:
+                if (Random.value > 0.4f)
+                {
+                    Rotate(monster);
+                }
                 monster.aim = monster.transform.position + monster.transform.forward * 16f;
                 TargetPlayer(monster);
                 break;
@@ -107,14 +120,17 @@ public class SGoblinBrain : SMonsterBrain
                 monster.GoTo(monster.target);
                 if (DistancePlayer(monster) < monster.stats.attackDistance)
                 {
+                    monster.GoTo(monster.transform.position);
                     monster.state = MonsterState.attack;
                 }
+                TargetPlayer(monster);
                 break;
             case MonsterState.attack:
                 TargetPlayer(monster);
                 if (AnglePlayer(monster) < 1f)
-                    AttackPlayer(monster);                
+                    AttackPlayer(monster);
                 break;
+            case MonsterState.dead: break;
             default:
                 TargetPlayer(monster);
                 break;

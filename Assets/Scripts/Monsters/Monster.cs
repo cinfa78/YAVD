@@ -23,6 +23,7 @@ public class Monster : MonoBehaviour, IDamageable
     public SEvent monsterKilled;
 
     public MonsterState state;
+    public MonsterState previousState;
 
     Rigidbody rigidBody;
 
@@ -38,6 +39,7 @@ public class Monster : MonoBehaviour, IDamageable
         hp = stats.health;
         agent = GetComponent<NavMeshAgent>();
         state = MonsterState.idle;
+        previousState = MonsterState.idle;
         rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -113,6 +115,12 @@ public class Monster : MonoBehaviour, IDamageable
     void Update()
     {
         brain.Think(this);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(target, 4f);
+        Gizmos.color = Color.yellow;
+        Debug.DrawLine(transform.position, target);
+        Debug.DrawLine(transform.position, aim);
+        Gizmos.DrawSphere(aim, 3f);
     }
 
     public void Die()
@@ -128,7 +136,7 @@ public class Monster : MonoBehaviour, IDamageable
         if (rigidBody != null)
         {
             //agent.enabled = false;
-            transform.position += (hitter - transform.position);
+            transform.position -= (hitter - transform.position);
             agent.velocity = rigidBody.velocity;
             //print("ciaone "+agent.velocity+" "+ rigidBody.velocity);
 //            agent.enabled = true;

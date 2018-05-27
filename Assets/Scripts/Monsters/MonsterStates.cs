@@ -6,8 +6,8 @@ public enum MonsterState
 {
     idle = 0,
     alerted = 1,
-    dead = 2,    
-    attack = 3,
     pursue = 4,
+    attack = 3,
+    dead = 2,    
     hurt = 5,
 };
