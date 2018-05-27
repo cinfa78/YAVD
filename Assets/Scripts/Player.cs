@@ -74,6 +74,12 @@ public class Player : MonoBehaviour, IDamageable
 
     }
 
+    public void Hit(float damageReceived, Vector3 hitter)
+    {
+        //non mi interessa se so chi mi ha colpito
+        Hit(damageReceived);
+    }
+
     public void Hit(float damageReceived)
     {
         stats.hp -= damageReceived;

@@ -24,10 +24,21 @@ public class Monster : MonoBehaviour, IDamageable
 
     public MonsterState state;
 
+    Rigidbody rigidBody;
+
+
     private void OnEnable()
     {
         aim = Vector3.forward;
         agent.speed = stats.speed;
+    }
+
+    void Awake()
+    {
+        hp = stats.health;
+        agent = GetComponent<NavMeshAgent>();
+        state = MonsterState.idle;
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     public void GetAllerted(Vector3 target)
@@ -75,7 +86,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void PauseMovement(float seconds)
     {
-        if(canMove)
+        if (canMove)
             StartCoroutine(PauseMovementCoroutine(seconds));
     }
 
@@ -89,21 +100,14 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void GoTo(Vector3 destination)
     {
-        if(canMove)
+        if (canMove)
             agent.SetDestination(destination);
     }
 
     public void Rotate(float yAngle)
     {
-        if(canMove)
+        if (canMove)
             transform.Rotate(Vector3.up * yAngle);
-    }
-
-    void Awake()
-    {
-        hp = stats.health;
-        agent = GetComponent<NavMeshAgent>();
-        state = MonsterState.idle;
     }
 
     void Update()
@@ -114,8 +118,23 @@ public class Monster : MonoBehaviour, IDamageable
     public void Die()
     {
         state = MonsterState.dead;
-        monsterKilled.Raise();        
+        monsterKilled.Raise();
         Destroy(gameObject);
+    }
+
+    public void Hit(float damageReceived, Vector3 hitter)
+    {
+        //aggiunge una forza di deflect 
+        if (rigidBody != null)
+        {
+            //agent.enabled = false;
+            transform.position += (hitter - transform.position);
+            agent.velocity = rigidBody.velocity;
+            //print("ciaone "+agent.velocity+" "+ rigidBody.velocity);
+//            agent.enabled = true;
+        }
+        //e poi considera il colpo in maniera normale
+        Hit(damageReceived);
     }
 
     public void Hit(float damageReceived)

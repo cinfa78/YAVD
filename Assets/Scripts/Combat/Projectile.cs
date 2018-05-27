@@ -41,6 +41,10 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     {
         OnDeflect();
     }
+    public void Hit(float damageReceived, Vector3 hitter)
+    {
+        OnDeflect();
+    }
 
     public void OnHit()
     {

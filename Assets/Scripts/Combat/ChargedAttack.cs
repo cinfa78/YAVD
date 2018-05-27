@@ -58,7 +58,7 @@ public class ChargedAttack : MonoBehaviour
     {        
         if (other.gameObject.GetComponent<IDamageable>() != null && other.tag!="Player")
         {
-            other.gameObject.GetComponent<IDamageable>().Hit(damage);
+            other.gameObject.GetComponent<IDamageable>().Hit(damage,new Vector3(transform.position.x,0,transform.position.z));
         }
     }
 }
