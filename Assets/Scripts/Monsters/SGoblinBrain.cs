@@ -8,10 +8,10 @@ public class SGoblinBrain : SMonsterBrain
 
     public SPlayerStats playerData;
 
-    private void Rotate(Monster monster)
+    private void Rotate(Monster monster, int direction = 1)
     {
         //monster.transform.Rotate(0f, monster.stats.speed, 0f);
-        monster.Rotate(monster.stats.speed);
+        monster.Rotate(2f * direction);
     }
     void Wander(Monster monster)
     {
@@ -24,9 +24,17 @@ public class SGoblinBrain : SMonsterBrain
 
         if (monster.canAttack)
         {
-            monster.Ranged();
-            GameObjectPool.instance.Spawn("Arrow", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
-            Debug.Log("Goblin " + monster + " attacks the Player");
+            Ray ray = new Ray(monster.transform.position, monster.aim - monster.transform.position);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, monster.stats.sightDistance, 1 << 11 | 1 << 12))
+            {//| 1 << 12
+                if (hit.collider.gameObject.layer == 11)
+                {
+                    monster.Ranged();
+                    GameObjectPool.instance.Spawn("Arrow", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
+                    Debug.Log("Goblin " + monster + " attacks the Player");
+                }
+            }
         }
     }
 
@@ -95,15 +103,19 @@ public class SGoblinBrain : SMonsterBrain
     public override void Think(Monster monster)
     {
         //Checks if player is in sight
-
-
+        Vector3 rotation = monster.transform.rotation.eulerAngles;
+        monster.transform.LookAt(monster.target);
+        float rotateDirection = ((monster.transform.rotation.eulerAngles.y - rotation.y + 360f) % 360f) > 180.0f ? -1 : 1;
+        monster.transform.rotation = Quaternion.Euler(rotation);
         switch (monster.state)
         {
             case MonsterState.idle:
-                if (Random.value > 0.8f)
+                if (Random.value > 0.5f)
                 {
-                    Rotate(monster);
-
+                    if(Random.value>0.2)
+                        Rotate(monster, (int)rotateDirection);
+                    else
+                        monster.GoTo(monster.aim);
                 }
                 monster.aim = monster.transform.position + monster.transform.forward * 16f;
                 TargetPlayer(monster);
@@ -113,20 +125,29 @@ public class SGoblinBrain : SMonsterBrain
                 {
                     Rotate(monster);
                 }
-                monster.aim = monster.transform.position + monster.transform.forward * 16f;
+                UpdateAimPoint(monster);
+                //monster.aim = monster.transform.position + monster.transform.forward * 16f;
                 TargetPlayer(monster);
                 break;
             case MonsterState.pursue:
+                TargetPlayer(monster);
                 monster.GoTo(monster.target);
                 if (DistancePlayer(monster) < monster.stats.attackDistance)
                 {
+                    //mi fermo
                     monster.GoTo(monster.transform.position);
+                    monster.agent.velocity *= 0.5f;
+
+
+                    //voglio attaccare
                     monster.state = MonsterState.attack;
                 }
-                TargetPlayer(monster);
                 break;
             case MonsterState.attack:
                 TargetPlayer(monster);
+                monster.GoTo(monster.transform.position);
+                //miro
+                UpdateAimPoint(monster);
                 if (AnglePlayer(monster) < 1f)
                     AttackPlayer(monster);
                 break;

@@ -14,8 +14,8 @@ MonoBehaviour:
   damage: 1
   attackCooldown: 3
   health: 3
-  speed: 32
-  sightDistance: 96
+  speed: 64
+  sightDistance: 64
   attackDistance: 32
   sightAngle: 60
   aimAngle: 5

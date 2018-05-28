@@ -41,6 +41,8 @@ public class Monster : MonoBehaviour, IDamageable
         state = MonsterState.idle;
         previousState = MonsterState.idle;
         rigidBody = GetComponent<Rigidbody>();
+        agent.speed = stats.speed;
+        agent.acceleration = stats.speed;
     }
 
     public void GetAllerted(Vector3 target)
@@ -111,16 +113,20 @@ public class Monster : MonoBehaviour, IDamageable
         if (canMove)
             transform.Rotate(Vector3.up * yAngle);
     }
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(target, 4f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(aim, 3f);
+    }
     void Update()
     {
         brain.Think(this);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(target, 4f);
-        Gizmos.color = Color.yellow;
+        
         Debug.DrawLine(transform.position, target);
         Debug.DrawLine(transform.position, aim);
-        Gizmos.DrawSphere(aim, 3f);
+        
     }
 
     public void Die()
