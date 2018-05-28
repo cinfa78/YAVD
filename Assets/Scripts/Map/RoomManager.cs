@@ -6,13 +6,14 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshSurface))]
 public class RoomManager : MonoBehaviour
 {
-
     //temporaneo
     public GameObject roomPrefabDefault;
     public SMonsterSpawnConfiguration monstersToSpawnDefault;
+    public RoomExit playerSpawnExitPrefab;
     GameObject[] spawnPlayer;
     GameObject[] spawnMonster;
     Door[] doors;
+    RoomExit[] exits;
     Player[] players;
     List<Monster> monsters;
     int monstersAlive = 0;
@@ -63,11 +64,21 @@ public class RoomManager : MonoBehaviour
         doors = GameObject.FindObjectsOfType<Door>();
 
         spawnPlayer = GameObject.FindGameObjectsWithTag("SpawnerPlayer");
+
+        for (i = 0; i < spawnPlayer.Length; i++)
+        {
+            RoomExit newSpawnPoint = Instantiate(playerSpawnExitPrefab, spawnPlayer[i].transform.position, spawnPlayer[i].transform.rotation);
+            newSpawnPoint.EnableExit(false);
+            spawnPlayer[i] = newSpawnPoint.gameObject;
+        }
+
         i = 0;
         foreach (Player p in players)
         {
-            p.transform.position = spawnPlayer[i % spawnPlayer.Length].transform.position;
+            p.transform.position = spawnPlayer[i % spawnPlayer.Length].transform.position;            
             p.transform.rotation = spawnPlayer[i % spawnPlayer.Length].transform.rotation;
+            //elimino la  possibilita' di uscire da qua
+            spawnPlayer[i % spawnPlayer.Length].GetComponent<RoomExit>().CloseExit();
             //print(p.transform.position + " " + spawnPlayer[i % spawnPlayer.Length].transform.position);
             float minDistance = 80000f;
             int closestDoor = 0;
@@ -89,7 +100,7 @@ public class RoomManager : MonoBehaviour
     public void MonsterKilled()
     {
         monstersAlive--;
-        if(monstersAlive == 0)
+        if (monstersAlive == 0)
         {
             OpenDoors();
         }
@@ -100,6 +111,25 @@ public class RoomManager : MonoBehaviour
         {
             d.Open();
         }
+        foreach(GameObject go in spawnPlayer)
+        {
+            RoomExit temp = go.GetComponent<RoomExit>();
+            if (temp)
+                temp.EnableExit(true);
+        }
+    }
+    public void BlockDoors()
+    {
+        foreach (Door d in doors)
+        {
+            if (!d.blocked)
+                d.Block();
+        }
+    }
+
+    public void ExitRoom()
+    {
+        Debug.Log("Player exits room");
     }
 }
 

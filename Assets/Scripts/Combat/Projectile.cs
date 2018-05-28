@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     //Collider coll;
     public SFloatValue damage;
     public SFloatValue speed;
+    float internalSpeed;
     public SBoolValue isDeflectable;
     bool deflectable;
     public SAudio shootSound;
@@ -18,16 +19,19 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
     public SEvent hitEvent;
     //public EventInfo projectileHitInfo;
     public string fxPoolTag;
+    public GameObject owner;
 
     void Awake()
     {
         //coll = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
         deflectable = isDeflectable.Value;
+        internalSpeed = speed.Value;
     }
 
     public void OnSpawn()
     {
+        internalSpeed = speed.Value;
         deflectable = isDeflectable.Value;
         shootSound.Play(audioSource);
     }
@@ -48,7 +52,6 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
 
     public void OnHit()
     {
-        print(name + " projectile onhit");
         hitSound.Play(audioSource);
         if (fxPoolTag.Length > 0)
             GameObjectPool.instance.Spawn(fxPoolTag, transform.position, transform.rotation, Vector3.one);
@@ -61,7 +64,9 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
         {
             deflectSound.Play(audioSource);
             transform.forward *= -1;
+            internalSpeed += 1f;
             deflectable = false;
+            owner = gameObject;
         }
         else
         {
@@ -72,17 +77,17 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
 
     void Update()
     {
-        transform.position += transform.forward * speed.Value;
+        transform.position += transform.forward * internalSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         string collidedTag = collision.gameObject.tag;
         int collidedLayer = collision.gameObject.layer;
-        //        print(name + " collided with " + collision.gameObject.name + " " + collidedTag);
-        if (collidedTag == "Player")
-        {
-            if (collision.gameObject.GetComponent<IDamageable>() != null)
+
+        if ((collidedTag == "Player" || collidedTag == "Monster") && collision.gameObject.GetInstanceID() != owner.GetInstanceID())
+        {            
+            if (collision.gameObject.GetComponent<IDamageable>() != null )
                 collision.gameObject.GetComponent<IDamageable>().Hit(damage.Value);
             OnHit();
         }
@@ -90,5 +95,6 @@ public class Projectile : MonoBehaviour, IProjectile, IDamageable
         {
             OnHit();
         }
+
     }
 }

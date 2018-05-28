@@ -51,6 +51,7 @@ public class Player : MonoBehaviour, IDamageable
         stats.gold = statsDefault.gold;
         stats.position = statsDefault.position;
         stats.facingDirection = statsDefault.facingDirection;
+        playerStatsChangeEvent.Raise();
     }
 
     void Awake()
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour, IDamageable
         GameObject.Instantiate(stats.sword, swordContainer.transform);// as GameObject;
         if (stats == null) Reset();
         if (stats.hp <= 0) Reset();
+        playerStatsChangeEvent.Raise();
     }
     void Start()
     {
@@ -83,7 +85,7 @@ public class Player : MonoBehaviour, IDamageable
     public void Hit(float damageReceived)
     {
         stats.hp -= damageReceived;
-        playerStatsChangeEvent.Raise();
+        
         GameObjectPool.instance.Spawn("Blood", transform.position + Vector3.up * 8f, transform.rotation, Vector3.one);
         if (stats.hp <= 0)
         {
@@ -95,6 +97,7 @@ public class Player : MonoBehaviour, IDamageable
             //deve entrare nello stato di GRAZIA
 
         }
+        playerStatsChangeEvent.Raise();
     }
 
     void Update()

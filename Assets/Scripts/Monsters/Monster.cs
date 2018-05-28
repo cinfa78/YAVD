@@ -83,6 +83,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     IEnumerator RangedCoroutine()
     {
+        print("Ranged");
         canAttack = false;
         yield return new WaitForSeconds(stats.attackCooldown);
         canAttack = true;
@@ -110,8 +111,10 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void Rotate(float yAngle)
     {
-        if (canMove)
+        if (canMove) { 
             transform.Rotate(Vector3.up * yAngle);
+            agent.updateRotation = true;
+        }
     }
     void OnDrawGizmos()
     {
@@ -123,10 +126,8 @@ public class Monster : MonoBehaviour, IDamageable
     void Update()
     {
         brain.Think(this);
-        
         Debug.DrawLine(transform.position, target);
         Debug.DrawLine(transform.position, aim);
-        
     }
 
     public void Die()
@@ -141,16 +142,33 @@ public class Monster : MonoBehaviour, IDamageable
         //aggiunge una forza di deflect 
         if (rigidBody != null)
         {
-            //agent.enabled = false;
-            transform.position -= (hitter - transform.position);
-            agent.velocity = rigidBody.velocity;
-            //print("ciaone "+agent.velocity+" "+ rigidBody.velocity);
-//            agent.enabled = true;
+            aim = hitter;
+            target = hitter;
+            StartCoroutine(HitKickback(hitter));
         }
         //e poi considera il colpo in maniera normale
         Hit(damageReceived);
-    }
 
+    }
+    IEnumerator HitKickback(Vector3 hitPosition)
+    {
+        float t = Time.time;
+        float endt = t + 1f;
+        state = MonsterState.hurt;
+        canMove = false;
+        agent.enabled = false;
+        rigidBody.isKinematic = false;
+        rigidBody.AddExplosionForce(3000f, hitPosition, 32f);        
+        while (t < endt)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+        rigidBody.isKinematic = true;
+        agent.enabled = true;
+        canMove = true;
+        state = MonsterState.alerted;
+    }
     public void Hit(float damageReceived)
     {
         print(name + " has been Hit");

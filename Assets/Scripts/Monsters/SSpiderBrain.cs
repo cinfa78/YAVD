@@ -41,7 +41,8 @@ public class SSpiderBrain : SMonsterBrain
         if (monster.canAttack)
         {
             monster.Ranged();
-            GameObjectPool.instance.Spawn("Spiderweb", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
+            GameObject spiderweb =  GameObjectPool.instance.Spawn("Spiderweb", monster.transform.position + Vector3.up * 4f, monster.transform.rotation, Vector3.one);
+            spiderweb.GetComponent<Projectile>().owner = monster.gameObject;
             Debug.Log("Spider " + monster + " attacks the Player");
         }
     }

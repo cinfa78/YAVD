@@ -128,7 +128,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!65 &65973619325301930
 BoxCollider:
@@ -156,13 +156,15 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 1af6a057884fc5c49b1443c4def98a4d, type: 2}
   stats: {fileID: 11400000, guid: 36b585a57e5869745a91b499ba3683c2, type: 2}
   hp: 0
-  canShoot: 1
+  canAttack: 1
+  canMove: 1
   allerted: 0
   target: {x: 0, y: 0, z: 0}
   aim: {x: 0, y: 0, z: 0}
   agent: {fileID: 195682940889865788}
   monsterKilled: {fileID: 11400000, guid: 47ee6469efda47c4c8cdae15e413c446, type: 2}
   state: 0
+  previousState: 0
 --- !u!195 &195682940889865788
 NavMeshAgent:
   m_ObjectHideFlags: 1
