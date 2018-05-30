@@ -30,6 +30,10 @@ public class RoomManager : MonoBehaviour
 
         if (roomPrefabDefault && monstersToSpawnDefault)
             InitRoom(roomPrefabDefault, monstersToSpawnDefault);
+
+        SPlayerStats stats = Player.instance.stats;
+
+        SaveGameManager.instance.SaveGame(stats.roomNumber, stats.hp, stats.gold);
     }
 
     public void InitRoom(GameObject roomPrefab, SMonsterSpawnConfiguration monstersToSpawn)

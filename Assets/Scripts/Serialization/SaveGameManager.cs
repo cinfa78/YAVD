@@ -7,6 +7,7 @@ using System.IO;
 public class SaveGameManager : MonoBehaviour {
 
     public static SaveGameManager instance;
+    public SMeshIDs meshIDs;
 
     private void Awake()
     {
@@ -53,9 +54,33 @@ public class SaveGameManager : MonoBehaviour {
         return data;
     }
 
-    public void SaveRoom(int roomNumber)
+    public bool LoadGame()
     {
-        Save(new SerializableSaveData(roomNumber), "SaveData");
+        if (!SaveGameExists())
+            return false;
+        
+        SerializableSaveData data = Load("SaveData");
+
+        SPlayerStats stats = Player.instance.stats;
+
+        stats.description = data.description;
+        stats.roomNumber = data.room;
+        stats.hp = data.hp;
+
+        stats.mesh = meshIDs.PlayerMeshes[data.meshID];
+        stats.sword = meshIDs.SwordMeshes[data.swordID];
+
+        return true;
+    }
+
+    public void SaveGame(int roomNumber, float hp, int gold)
+    {
+        Save(new SerializableSaveData(roomNumber, hp, gold), "SaveData");
+    }
+
+    public bool SaveGameExists()
+    {
+        return File.Exists(Application.dataPath + "/saves/SaveData.dat");
     }
 
     /* TESTING */
@@ -65,7 +90,7 @@ public class SaveGameManager : MonoBehaviour {
 
     public void SaveTestFile()
     {
-        Save(new SerializableSaveData(TestNumber), TestName);
+        Save(new SerializableSaveData(TestNumber, TestNumber, TestNumber), TestName);
     }
 
     public void LoadTestFile()
