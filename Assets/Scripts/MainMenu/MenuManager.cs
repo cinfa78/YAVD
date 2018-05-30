@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
 
         playingCutscene = false;
         cutsceneSpeed = 1f;
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
     // Update is called once per frame
     void Update()
@@ -94,11 +94,11 @@ public class MenuManager : MonoBehaviour
         }
         if (!playingCutscene)
         {
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 StartNewGame();
             }
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))
             {
                 ContinueGame();
             }
