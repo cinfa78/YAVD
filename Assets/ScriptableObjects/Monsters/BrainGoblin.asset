@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: BrainGoblin
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}
+  arrowSound: {fileID: 11400000, guid: 5da647398c68778488bef737803890cc, type: 2}

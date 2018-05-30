@@ -26,7 +26,7 @@ public class Monster : MonoBehaviour, IDamageable
     public MonsterState previousState;
 
     Rigidbody rigidBody;
-
+    public AudioSource audioSource;
 
     private void OnEnable()
     {
@@ -36,6 +36,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         hp = stats.health;
         agent = GetComponent<NavMeshAgent>();
         state = MonsterState.idle;

@@ -3,37 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName ="NewAudioEffectPlayer", menuName ="YAVD/Audio Effect")]
-public class SAudio : ASAudioEvent {
+[CreateAssetMenu(fileName = "NewAudioEffectPlayer", menuName = "YAVD/Audio Effect")]
+public class SAudio : ASAudioEvent
+{
     public AudioClip[] audioClips;
     public float pitchVariation;
     public float volumeVariation;
-    
+    public float pitchBase;
+    public float volumeBase;
 
-	public override void Play(AudioSource source)
+    public override void Play(AudioSource audioSource)
     {
-        if (audioClips.Length == 0) return;
-        float basePitch = source.pitch;
-        float baseVolume= source.volume;
-        
-        source.clip = audioClips[Random.Range(0, audioClips.Length)];
-        source.pitch += Random.Range(-pitchVariation, +pitchVariation);
-        source.volume += Random.Range(-volumeVariation, +volumeVariation);
-        source.Play();
-        source.pitch = basePitch;
-        source.volume = baseVolume;
+        Play(audioSource, Random.Range(0, audioClips.Length));
     }
-    public override void Play(AudioSource source, int clipNumber = 0)
+
+    public override void Play(AudioSource audioSource, int clipNumber = 0)
     {
         if (audioClips.Length == 0) return;
-        float basePitch = source.pitch;
-        float baseVolume = source.volume;
-        
-        source.clip = audioClips[clipNumber%audioClips.Length];
-        source.pitch += Random.Range(-pitchVariation, +pitchVariation);
-        source.volume += Random.Range(-volumeVariation, +volumeVariation);
-        source.Play();
-        source.pitch = basePitch;
-        source.volume = baseVolume;
+        float basePitch = audioSource.pitch;
+        float baseVolume = audioSource.volume;
+
+        audioSource.clip = audioClips[clipNumber % audioClips.Length];
+        audioSource.pitch = pitchBase + Random.Range(-pitchVariation, +pitchVariation);
+        audioSource.volume = volumeBase + Random.Range(-volumeVariation, +volumeVariation);
+
+        if(audioSource.isActiveAndEnabled)
+            audioSource.Play();
+        /*        audioSource.pitch = basePitch;
+                audioSource.volume = baseVolume;*/
     }
 }

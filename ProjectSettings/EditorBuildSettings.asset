@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Cinfa.unity
     guid: 13271ea655d7deb4d9b86b2d8c34b730
   - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: b97e5efbfb5293640ae8c5e4b111321e
+  - enabled: 1
     path: Assets/Scenes/PrefabBuildingScene.unity
     guid: 62718dceeaeb77b4fa668f65d65a25c6

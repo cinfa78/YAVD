@@ -224,11 +224,12 @@ MonoBehaviour:
   damage: {fileID: 11400000, guid: bcb3c684b09e144468160adef17fac9a, type: 2}
   speed: {fileID: 11400000, guid: f90452cc57e5ac641933218df030092d, type: 2}
   isDeflectable: {fileID: 11400000, guid: c80b31d7ee936dd4a95d599ad80aaf7a, type: 2}
-  shootSound: {fileID: 11400000, guid: 18bd7b4216eca1a47b0d81db53aa6b76, type: 2}
+  shootSound: {fileID: 11400000, guid: 5da647398c68778488bef737803890cc, type: 2}
   hitSound: {fileID: 11400000, guid: 18bd7b4216eca1a47b0d81db53aa6b76, type: 2}
   deflectSound: {fileID: 11400000, guid: 18bd7b4216eca1a47b0d81db53aa6b76, type: 2}
   hitEvent: {fileID: 11400000, guid: 1f1b5c8db825001449e50f71f1c15df0, type: 2}
   fxPoolTag: LightParticles
+  owner: {fileID: 0}
 --- !u!135 &135631926519694566
 SphereCollider:
   m_ObjectHideFlags: 1

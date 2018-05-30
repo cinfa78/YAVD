@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Brain", menuName = "MonsterBrains/Goblin")]
 public class SGoblinBrain : SMonsterBrain
 {
-
     public SPlayerStats playerData;
 
     private void Rotate(Monster monster, int direction = 1)
@@ -20,8 +19,6 @@ public class SGoblinBrain : SMonsterBrain
     }
     private void AttackPlayer(Monster monster)
     {
-        //Devo dire a monster di sparare lo sputo
-
         if (monster.canAttack)
         {
             Ray ray = new Ray(monster.transform.position, monster.aim - monster.transform.position);
@@ -119,7 +116,7 @@ public class SGoblinBrain : SMonsterBrain
                 }
                 else
                 {
-                    Debug.Log("stay...");
+                    //Debug.Log("stay...");
                 }
                 TargetPlayer(monster);
                 break;
