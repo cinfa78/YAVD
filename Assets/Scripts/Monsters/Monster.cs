@@ -84,7 +84,7 @@ public class Monster : MonoBehaviour, IDamageable
 
     IEnumerator RangedCoroutine()
     {
-        print("Ranged");
+        //print("Ranged");
         canAttack = false;
         yield return new WaitForSeconds(stats.attackCooldown);
         canAttack = true;

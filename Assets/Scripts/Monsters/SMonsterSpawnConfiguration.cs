@@ -8,10 +8,9 @@ public class SMonsterSpawnConfiguration : ScriptableObject
     [System.Serializable]
     public class Spawner
     {        
-        public Monster monsterToSpawn;
+        public GameObject monsterToSpawn;
         public int numberToSpawn;
     }
     public List<Spawner> monsters;
-
 }
 

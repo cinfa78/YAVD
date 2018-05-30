@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviour
     public GameObject roomPrefabDefault;
     public SMonsterSpawnConfiguration monstersToSpawnDefault;
     public RoomExit playerSpawnExitPrefab;
+    public SPlayerStats playerStats;
     GameObject[] spawnPlayer;
     GameObject[] spawnMonster;
     Door[] doors;
@@ -27,17 +28,31 @@ public class RoomManager : MonoBehaviour
 
     void Start()
     {
-
         if (roomPrefabDefault && monstersToSpawnDefault)
             InitRoom(roomPrefabDefault, monstersToSpawnDefault);
+        //SPlayerStats stats = Player.instance.stats;
+        
+    }
 
-        SPlayerStats stats = Player.instance.stats;
-
-        SaveGameManager.instance.SaveGame(stats.roomNumber, stats.hp, stats.gold);
+    public void ClearRoom()
+    {
+        foreach (Monster m in monsters)
+        {
+            Destroy(m);
+        }
+        monsters.Clear();
+        for (int i = 0; i < spawnPlayer.Length; i++)
+        {
+            /*RoomExit newSpawnPoint = Instantiate(playerSpawnExitPrefab, spawnPlayer[i].transform.position, spawnPlayer[i].transform.rotation);
+            newSpawnPoint.EnableExit(false);*/
+            Destroy(spawnPlayer[i]);
+        }
+        spawnPlayer = null;
     }
 
     public void InitRoom(GameObject roomPrefab, SMonsterSpawnConfiguration monstersToSpawn)
     {
+        //SaveGameManager.instance.SaveGame(playerStats.roomNumber, playerStats.hp, playerStats.gold);
         int i, j;
         //GameObject room = 
         Instantiate(roomPrefab);
@@ -57,9 +72,9 @@ public class RoomManager : MonoBehaviour
         {
             for (i = 0; i < s.numberToSpawn; i++)
             {
-                Monster newMonster = Instantiate(s.monsterToSpawn, spawnMonster[j % spawnMonster.Length].transform) as Monster;
+                GameObject newMonster = Instantiate(s.monsterToSpawn, spawnMonster[j % spawnMonster.Length].transform);
                 newMonster.transform.rotation = spawnMonster[j % spawnMonster.Length].transform.rotation;
-                monsters.Add(newMonster);
+                monsters.Add(newMonster.GetComponent<Monster>());
                 monstersAlive++;
                 j++;
             }
@@ -134,6 +149,7 @@ public class RoomManager : MonoBehaviour
     public void ExitRoom()
     {
         Debug.Log("Player exits room");
+        ClearRoom();
     }
 }
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: SpawnGoblins
   m_EditorClassIdentifier: 
   monsters:
-  - monsterToSpawn: {fileID: 114872783669548768, guid: 837f3af48efa6c742b98b2176d99ff03,
+  - monsterToSpawn: {fileID: 1561633965769354, guid: 837f3af48efa6c742b98b2176d99ff03,
       type: 2}
     numberToSpawn: 4

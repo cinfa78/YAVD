@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: SpawnMix
   m_EditorClassIdentifier: 
   monsters:
-  - monsterToSpawn: {fileID: 114743130252490444, guid: 0d23a1b8a38b0f549aa93b2f6c1ae6e7,
+  - monsterToSpawn: {fileID: 1965416849100734, guid: 0d23a1b8a38b0f549aa93b2f6c1ae6e7,
       type: 2}
     numberToSpawn: 2
-  - monsterToSpawn: {fileID: 114872783669548768, guid: 837f3af48efa6c742b98b2176d99ff03,
+  - monsterToSpawn: {fileID: 1561633965769354, guid: 837f3af48efa6c742b98b2176d99ff03,
       type: 2}
     numberToSpawn: 2
