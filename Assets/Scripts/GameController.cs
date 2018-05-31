@@ -22,15 +22,32 @@ public class GameController : MonoBehaviour
         cameraResource = Instantiate<GameObject>(cameraResource);
         player.cameraLookAtObject = cameraResource;
         roomManager.playerStats = player.stats;
-        
+
     }
+
     void Start()
+    {
+        roomManager.ClearRoom();
+        InitRoom();
+    }
+    
+    public void LoadNextLevel()
+    {
+        level++;
+        //
+        if (level >= roomsList.Count)
+        {
+            Debug.Log("Fine livelli");
+        }else
+        {
+            roomManager.ClearRoom();
+            InitRoom();
+        }        
+    }
+
+    public void InitRoom()
     {
         currentRoom = roomsList[level];
         roomManager.InitRoom(currentRoom.roomPrefab, currentRoom.monsterConfiguration);
     }
-    /*    void Update()
-        {
-
-        }*/
 }

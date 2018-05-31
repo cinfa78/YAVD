@@ -19,4 +19,9 @@ public class EventListener : MonoBehaviour {
     {
         Response.Invoke();
     }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -120,7 +120,11 @@ namespace UnityEngine.AI
 
         public void RemoveData()
         {
+
+            NavMesh.RemoveNavMeshData(m_NavMeshDataInstance);
+
             m_NavMeshDataInstance.Remove();
+            
             m_NavMeshDataInstance = new NavMeshDataInstance();
         }
 
@@ -148,6 +152,7 @@ namespace UnityEngine.AI
 
         public void BuildNavMesh()
         {
+            
             var sources = CollectSources();
 
             // Use unscaled bounds - this differs in behaviour from e.g. collider components.

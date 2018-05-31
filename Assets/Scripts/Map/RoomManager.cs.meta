@@ -1,11 +1,16 @@
 fileFormatVersion: 2
 guid: f7092b7a2c4aed848bbd9a34fa4c8e70
-timeCreated: 1527093246
+timeCreated: 1527763384
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - roomPrefabDefault: {instanceID: 0}
+  - monstersToSpawnDefault: {instanceID: 0}
+  - playerSpawnExitPrefab: {instanceID: 0}
+  - playerStats: {instanceID: 0}
+  - destroyRoom: {fileID: 11400000, guid: 45595a983bb3182469ed81aeca41cac0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
