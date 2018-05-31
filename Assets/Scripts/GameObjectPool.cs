@@ -37,7 +37,7 @@ public class GameObjectPool : MonoBehaviour
         Queue<GameObject> Q = new Queue<GameObject>();
         for (int i = 0; i < p.startingSize; i++)
         {
-            GameObject g = Instantiate<GameObject>(p.objToSpawn[Random.Range(0, p.objToSpawn.Length)]);
+            GameObject g = Instantiate<GameObject>(p.objToSpawn[Random.Range(0, p.objToSpawn.Length)], transform);
             g.name = p.tag + "_" + i.ToString();
             g.SetActive(false);
             Q.Enqueue(g);
@@ -47,7 +47,7 @@ public class GameObjectPool : MonoBehaviour
 
     void InitializePool()
     {
-        foreach(var p in pools)
+        foreach (var p in pools)
         {
             objectsPool.Add(p.tag, AddQueue(p));
         }
@@ -59,7 +59,7 @@ public class GameObjectPool : MonoBehaviour
         foreach (var p in pools)
         {
             if (p.tag == poolerTag) { }
-                canAdd = false;
+            canAdd = false;
             break;
         }
         if (canAdd)
@@ -77,7 +77,7 @@ public class GameObjectPool : MonoBehaviour
         {
             if (p.tag == poolerTag)
             {
-                newObject = Instantiate<GameObject>(p.objToSpawn[Random.Range(0, p.objToSpawn.Length)]);
+                newObject = Instantiate<GameObject>(p.objToSpawn[Random.Range(0, p.objToSpawn.Length)], transform);
                 break;
             }
         }
@@ -86,26 +86,27 @@ public class GameObjectPool : MonoBehaviour
 
     public void ResetPool()
     {
-        foreach(var p in pools)
+        foreach (var p in pools)
         {
-            foreach(var o in objectsPool[p.tag])
+            foreach (var o in objectsPool[p.tag])
             {
                 o.SetActive(false);
             }
         }
     }
 
-    public GameObject Spawn(string poolerTag, Vector3 position, Quaternion rotation, Vector3 localScale )
+    public GameObject Spawn(string poolerTag, Vector3 position, Quaternion rotation, Vector3 localScale)
     {
         if (objectsPool.ContainsKey(poolerTag))
         {
             GameObject g = objectsPool[poolerTag].Dequeue();
-                
+
             if (g.activeSelf && canAddToPools)
             {
                 objectsPool[poolerTag].Enqueue(g);
                 g = AddNewInstance(poolerTag);
-            }else if (g.activeSelf)
+            }
+            else if (g.activeSelf)
             {
                 if (g.GetComponent<IPooledObject>() != null)
                     g.GetComponent<IPooledObject>().OnDespawn();
@@ -114,8 +115,8 @@ public class GameObjectPool : MonoBehaviour
             g.transform.rotation = rotation;
             g.transform.localScale = localScale;
             g.SetActive(true);
-            
-            if (g.GetComponent<IPooledObject>()!=null)
+
+            if (g.GetComponent<IPooledObject>() != null)
                 g.GetComponent<IPooledObject>().OnSpawn();
             /*if (g.GetComponent<IonSpawn>() != null)
             {
@@ -129,8 +130,8 @@ public class GameObjectPool : MonoBehaviour
             Debug.LogWarning("Pooling Tag " + poolerTag + " inesistente.");
             return null;
         }
-            
+
     }
 
-	
+
 }

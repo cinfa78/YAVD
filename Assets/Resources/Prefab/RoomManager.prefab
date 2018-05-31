@@ -224,8 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7092b7a2c4aed848bbd9a34fa4c8e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefabDefault: {fileID: 0}
-  monstersToSpawnDefault: {fileID: 0}
   playerSpawnExitPrefab: {fileID: 114606483917700936, guid: dc3f6f1499637534295aac954b283ba5,
     type: 2}
   playerStats: {fileID: 0}

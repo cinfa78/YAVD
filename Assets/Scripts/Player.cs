@@ -145,7 +145,8 @@ public class Player : MonoBehaviour, IDamageable
             Vector3 destinationPoint = Camera.main.WorldToScreenPoint(transform.position) + move.normalized * 16f;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(destinationPoint), out hit, 5000f, 1 << 8))
             {
-                agent.SetDestination(hit.point);
+                if(agent.enabled)
+                    agent.SetDestination(hit.point);
             }
         }
         else

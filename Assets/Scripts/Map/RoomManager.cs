@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class RoomManager : MonoBehaviour
 {
     //temporaneo
-    public GameObject roomPrefabDefault;
-    public SMonsterSpawnConfiguration monstersToSpawnDefault;
+    //public GameObject roomPrefabDefault;
+    //public SMonsterSpawnConfiguration monstersToSpawnDefault;
     public RoomExit playerSpawnExitPrefab;
     public SPlayerStats playerStats;
     List<GameObject> spawnPlayer;
@@ -47,24 +47,24 @@ public class RoomManager : MonoBehaviour
     {
         
         for (int i = room.transform.childCount - 1; i >= 0; i--)
-            Destroy(room.transform.GetChild(i));
-        Destroy(room);
+            Destroy(room.transform.GetChild(i).gameObject);
+        
 
-        for (int i = spawnPlayer.Count - 1; i >= 0; i--)
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("SpawnerPlayer"))
         {
-            Destroy(spawnPlayer[i]);
+            go.SetActive(false);
+            Destroy(go.gameObject);
         }
         spawnPlayer.Clear();
         spawnPlayer.TrimExcess();
 
-        for (int i = spawnMonster.Count - 1; i >= 0; i--)
+        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Spawner"))
         {
-            Destroy(spawnMonster[i]);
+            go.SetActive(false);
+            Destroy(go.gameObject);
         }
         spawnMonster.Clear();
         spawnMonster.TrimExcess();
-        Debug.Log(spawnMonster + " " + spawnMonster.Count + " " + GameObject.FindGameObjectsWithTag("Spawner").Length);
-
 
         doors.Clear();
         doors.TrimExcess();
@@ -78,7 +78,9 @@ public class RoomManager : MonoBehaviour
         monsters.TrimExcess();
         exits.Clear();
         exits.TrimExcess();
-
+        room.SetActive(false);
+        Destroy(room);
+        surface.BuildNavMesh();
     }
 
     public void InitRoom(GameObject roomPrefab, SMonsterSpawnConfiguration monstersToSpawn)
@@ -152,14 +154,12 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             foreach (Monster m in monsters)
             {
                 if (m)
                     m.Hit(1000f);
-                else
-                    monsters.Remove(m);
             }
         }
     }
