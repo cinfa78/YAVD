@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class MenuManager : MonoBehaviour
@@ -20,6 +21,10 @@ public class MenuManager : MonoBehaviour
     bool playingCutscene = true;
     float cutsceneSpeed = 1f;
     public Texture2D cursorTexture;
+    public int gameScene = 1;
+    bool saveGameExists;
+    public SPlayerStats playerStats;
+    public SPlayerStats defaultPlayerStats;
 
     // Use this for initialization
     void Start()
@@ -32,6 +37,7 @@ public class MenuManager : MonoBehaviour
         continueGame.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         playingCutscene = true;
+        saveGameExists = SaveGameManager.instance.SaveGameExists();
         StartCoroutine(AnimateTitle());
     }
 
@@ -78,8 +84,11 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(1f * cutsceneSpeed);
 
         //SaveGameManager.instance.Load();
-        blip.Play(audioSource);
-        continueGame.gameObject.SetActive(true);
+        if (saveGameExists)
+        {
+            blip.Play(audioSource);
+            continueGame.gameObject.SetActive(true);
+        }
 
         playingCutscene = false;
         cutsceneSpeed = 1f;
@@ -98,7 +107,7 @@ public class MenuManager : MonoBehaviour
             {
                 StartNewGame();
             }
-            if (Input.GetKeyDown(KeyCode.C))
+            if (saveGameExists && Input.GetKeyDown(KeyCode.C))
             {
                 ContinueGame();
             }
@@ -106,13 +115,25 @@ public class MenuManager : MonoBehaviour
     }
     public void StartNewGame()
     {
+        defaultPlayerStats.CopyTo(playerStats);
         blip.Play(audioSource);
+        StartCoroutine(LoadNewScene(gameScene));
         Debug.Log("Start new game");
     }
     public void ContinueGame()
     {
+        SaveGameManager.instance.LoadGame();
         blip.Play(audioSource);
         Debug.Log("Continue game");
-        //SaveGameManager.instance.Load();
+        StartCoroutine(LoadNewScene(gameScene));
+    }
+
+    IEnumerator LoadNewScene(int scene)
+    {
+        AsyncOperation async = SceneManager.LoadSceneAsync(scene);
+        while (!async.isDone)
+        {
+            yield return null;
+        }
     }
 }

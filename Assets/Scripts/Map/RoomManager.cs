@@ -23,7 +23,8 @@ public class RoomManager : MonoBehaviour
 
     NavMeshSurface surface;
 
-    //public SEvent destroyRoom;
+    public SEvent destroyRoom;
+    public SEvent roomLoaded;
 
     void Awake()
     {
@@ -45,10 +46,10 @@ public class RoomManager : MonoBehaviour
 
     public void ClearRoom()
     {
-        
+
         for (int i = room.transform.childCount - 1; i >= 0; i--)
             Destroy(room.transform.GetChild(i).gameObject);
-        
+
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("SpawnerPlayer"))
         {
@@ -58,7 +59,7 @@ public class RoomManager : MonoBehaviour
         spawnPlayer.Clear();
         spawnPlayer.TrimExcess();
 
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Spawner"))
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Spawner"))
         {
             go.SetActive(false);
             Destroy(go.gameObject);
@@ -149,6 +150,7 @@ public class RoomManager : MonoBehaviour
             p.EnableAgent(true);
         }
 
+        roomLoaded.Raise();
         //Debug.Log("Number of monsters: " + monsters.Count + " " + GameObject.FindGameObjectsWithTag("Monster").Length);
     }
 
@@ -200,8 +202,8 @@ public class RoomManager : MonoBehaviour
 
     public void ExitRoom()
     {
-        //destroyRoom.Raise();
         Debug.Log("Player exits room");
+        destroyRoom.Raise();
         //ClearRoom();
     }
 }

@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     RoomManager roomManager;
     public int level = 0;
 
+
+
     void Awake()
     {
         roomManager = Instantiate<RoomManager>(RoomManagerResource);
@@ -22,7 +24,7 @@ public class GameController : MonoBehaviour
         cameraResource = Instantiate<GameObject>(cameraResource);
         player.cameraLookAtObject = cameraResource;
         roomManager.playerStats = player.stats;
-
+        Cursor.visible = true;
     }
 
     void Start()
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         roomManager.ClearRoom();
         InitRoom();
     }
-    
+
     public void LoadNextLevel()
     {
         level++;
@@ -38,11 +40,12 @@ public class GameController : MonoBehaviour
         if (level >= roomsList.Count)
         {
             Debug.Log("Fine livelli");
-        }else
+        }
+        else
         {
             roomManager.ClearRoom();
             InitRoom();
-        }        
+        }
     }
 
     public void InitRoom()

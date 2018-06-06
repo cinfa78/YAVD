@@ -30,4 +30,10 @@ public class RoomExit : MonoBehaviour
     {
         Destroy(colliderComponent);
     }
+
+    void OnDestroy()
+    {
+
+    }
+
 }

@@ -8,6 +8,7 @@ public class SaveGameManager : MonoBehaviour {
 
     public static SaveGameManager instance;
     public SMeshIDs meshIDs;
+    public SPlayerStats playerStats;
 
     private void Awake()
     {
@@ -61,14 +62,14 @@ public class SaveGameManager : MonoBehaviour {
         
         SerializableSaveData data = Load("SaveData");
 
-        SPlayerStats stats = Player.instance.stats;
+        SPlayerStats stats = playerStats;
 
-        stats.description = data.description;
-        stats.roomNumber = data.room;
-        stats.hp = data.hp;
+        playerStats.description = data.description;
+        playerStats.roomNumber = data.room;
+        playerStats.hp = data.hp;
 
-        stats.mesh = meshIDs.PlayerMeshes[data.meshID];
-        stats.sword = meshIDs.SwordMeshes[data.swordID];
+        playerStats.mesh = meshIDs.PlayerMeshes[data.meshID];
+        playerStats.sword = meshIDs.SwordMeshes[data.swordID];
 
         return true;
     }

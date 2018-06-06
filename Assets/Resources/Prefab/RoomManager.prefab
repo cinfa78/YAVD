@@ -226,4 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnExitPrefab: {fileID: 114606483917700936, guid: dc3f6f1499637534295aac954b283ba5,
     type: 2}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}
+  destroyRoom: {fileID: 11400000, guid: 45595a983bb3182469ed81aeca41cac0, type: 2}
+  roomLoaded: {fileID: 11400000, guid: 6dc7ad38cab74d74da878290315094b6, type: 2}

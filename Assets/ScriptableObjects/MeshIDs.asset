@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: MeshIDs
   m_EditorClassIdentifier: 
   PlayerMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1494924870465936, guid: 9f86a2076e821c944aa021068b7d1bdf, type: 2}
+  - {fileID: 1794178226379346, guid: 52a013353f66ee2448bce2a1954b8f6e, type: 2}
   SwordMeshes:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1004614470255350, guid: 9980ee123186ffc45baa39c49feb6230, type: 2}
+  - {fileID: 1004614470255350, guid: 4137074b0b37c5641bfbc6be56cc08c8, type: 2}

@@ -7,9 +7,9 @@ public class ChargedAttack : MonoBehaviour
     
     public SWeaponStats stats;    
     public Animator animator;
-    public float attackRadius;
+    //public float attackRadius;
     [SerializeField] private float chargeLevel = 0f;
-
+    
     public MeshRenderer meshRenderer;
     private Material material;
     //private float originalSpeed;

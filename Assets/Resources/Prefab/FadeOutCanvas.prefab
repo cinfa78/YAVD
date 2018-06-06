@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 95518883802639530}
   - component: {fileID: 114072244294076968}
   - component: {fileID: 114402732458281596}
+  - component: {fileID: 114196870979643282}
+  - component: {fileID: 114148530520968476}
   m_Layer: 0
   m_Name: FadeOutCanvas
   m_TagString: Untagged
@@ -89,11 +91,24 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: fade
+          m_StringArgument: fadeout
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114148530520968476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422418738321950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5212b997a6ca66b4aa1e72c6a1b5bbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadedIn: {fileID: 11400000, guid: 1e04c63f63a27524d984805825aa474c, type: 2}
+  fadedOut: {fileID: 11400000, guid: f0b4719c81039034ea3e8b107c5d4e40, type: 2}
 --- !u!114 &114164931888652818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +125,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114196870979643282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422418738321950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fbf890bcbf8b74a943d1d72ac655c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 6dc7ad38cab74d74da878290315094b6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 95518883802639530}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fadein
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114402732458281596
 MonoBehaviour:
   m_ObjectHideFlags: 1

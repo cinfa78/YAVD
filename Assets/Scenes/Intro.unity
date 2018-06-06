@@ -545,6 +545,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1002646391
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296137256980616, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c4eb541f117b29045aab376189ed8370, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1008068139
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162290875}
   - component: {fileID: 1162290876}
+  - component: {fileID: 1162290877}
   - component: {fileID: 1162290874}
   m_Layer: 5
   m_Name: MenuManager
@@ -691,6 +734,9 @@ MonoBehaviour:
   keyboardClick: {fileID: 11400000, guid: c3b3131cf90adb34485fd6834b9adc2d, type: 2}
   blip: {fileID: 11400000, guid: d245001650323114190dcd1496eb625f, type: 2}
   cursorTexture: {fileID: 2800000, guid: 32cf6809a7685124ca8c12330f5d66a9, type: 3}
+  gameScene: 1
+  playerStats: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}
+  defaultPlayerStats: {fileID: 11400000, guid: 41168b45f975ad64caf06a88a10d3ea7, type: 2}
 --- !u!4 &1162290875
 Transform:
   m_ObjectHideFlags: 0
@@ -784,6 +830,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1162290877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162290873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae51ab1c86ccb614f91bc43ad9373c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshIDs: {fileID: 11400000, guid: d56e89ae5d34c394ba68a15a26237fed, type: 2}
+  playerStats: {fileID: 11400000, guid: 32ed4833ec0ae2940a3667ebd477df09, type: 2}
+  TestNumber: 0
+  TestName: YAVD
 --- !u!1 &1232122983
 GameObject:
   m_ObjectHideFlags: 0

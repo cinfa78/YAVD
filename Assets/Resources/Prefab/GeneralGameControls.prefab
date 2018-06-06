@@ -51,3 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef801cecedec84a8516879cdb625fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseButtonEvent: {fileID: 11400000, guid: 38a8ae96e1f51a944a74245c0dc32caf, type: 2}
+  startButtonEvent: {fileID: 11400000, guid: a55c03f99c658504a813f85c1bd3247e, type: 2}

@@ -8,9 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d671a27b356b09c4abda706bd4e17081, type: 3}
-  m_Name: largeSwordStats
+  m_Script: {fileID: 11500000, guid: b7cc56774ca635a449ab2dc72390009f, type: 3}
+  m_Name: PauseButtonEvent
   m_EditorClassIdentifier: 
-  damage: 1.5
-  fullChargeTime: 2
-  chargedDamage: 3
+  listeners: []
