@@ -112,8 +112,9 @@ public class Monster : MonoBehaviour, IDamageable
 
     public void Rotate(float yAngle)
     {
-        if (canMove) { 
-            transform.Rotate(Vector3.up * yAngle);
+        if (canMove)
+        {
+            transform.Rotate(Vector3.up * yAngle * (Time.deltaTime*100f));
             agent.updateRotation = true;
         }
     }
@@ -159,7 +160,7 @@ public class Monster : MonoBehaviour, IDamageable
         canMove = false;
         agent.enabled = false;
         rigidBody.isKinematic = false;
-        rigidBody.AddExplosionForce(3000f, hitPosition, 32f);        
+        rigidBody.AddExplosionForce(3000f, hitPosition, 32f);
         while (t < endt)
         {
             t += Time.deltaTime;

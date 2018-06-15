@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
     public Player playerResource;
     public GameObject cameraResource;
     public RoomManager RoomManagerResource;
@@ -14,8 +13,6 @@ public class GameController : MonoBehaviour
     Player player;
     RoomManager roomManager;
     public int level = 0;
-
-
 
     void Awake()
     {
@@ -36,7 +33,6 @@ public class GameController : MonoBehaviour
     public void LoadNextLevel()
     {
         level++;
-        //
         if (level >= roomsList.Count)
         {
             Debug.Log("Fine livelli");
