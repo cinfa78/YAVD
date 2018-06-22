@@ -15,7 +15,7 @@ public class Player : MonoBehaviour, IDamageable
     Quaternion directionToFace;
     Vector3 lookAtPosition;
     public ASAudioEvent stepSound;
-    AudioSource audioSource;
+    //AudioSource audioSource;
 
     public SEvent playerMove;
     public SEvent playerDeath;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour, IDamageable
         lookAtPosition = Vector3.forward;
         speed = 0;
         previousPosition = transform.position;
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         GameObject meshContainer = transform.Find("MeshContainer").gameObject;
         //GameObject mesh = 

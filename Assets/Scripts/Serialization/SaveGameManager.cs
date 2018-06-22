@@ -62,7 +62,7 @@ public class SaveGameManager : MonoBehaviour {
         
         SerializableSaveData data = Load("SaveData");
 
-        SPlayerStats stats = playerStats;
+        //SPlayerStats stats = playerStats;
 
         playerStats.description = data.description;
         playerStats.roomNumber = data.room;
