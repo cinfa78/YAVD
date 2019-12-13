@@ -100,7 +100,7 @@ public class SSpiderBrain : SMonsterBrain
         //Checks if player is in sight
         TargetPlayer(monster);
         //if it's not alerted, keeps rotating (randomly?)
-        if (!monster.allerted)
+        if (!monster.alerted)
         {
             Rotate(monster);
             //aim is in front of the monster

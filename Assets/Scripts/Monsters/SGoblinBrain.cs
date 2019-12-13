@@ -170,7 +170,7 @@ public class SGoblinBrain : SMonsterBrain
 
 
         //if it's not alerted, keeps rotating (randomly?)
-        if (!monster.allerted)
+        if (!monster.alerted)
         {
 
             //aim is in front of the monster
